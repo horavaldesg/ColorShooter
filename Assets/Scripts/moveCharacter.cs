@@ -15,6 +15,11 @@ public class moveCharacter : MonoBehaviour
     public float jumpSpeed = 9;
     bool grounded;
     int i;
+    public static Vector2 coord;
+
+    public GameObject bullet;
+    public float bulletSpeed;
+    public Transform barrel;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,18 +60,30 @@ public class moveCharacter : MonoBehaviour
             verticalSpeed = jumpSpeed;
         }
         RaycastHit hit;
-        if(Physics.Raycast(camTransform.position,camTransform.forward, out hit))
+        if (Physics.Raycast(camTransform.position, camTransform.forward, out hit))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                i = Random.Range(0, newMaterial.Length);
-                hit.transform.gameObject.GetComponent<MeshRenderer>().material = newMaterial[i];
+            /*Paint*/
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    //i = Random.Range(0, newMaterial.Length);
+            //    //hit.transform.gameObject.GetComponent<MeshRenderer>().material = newMaterial[i];
+            //    coord = hit.textureCoord;
+            //    Shoot();
+                
 
-            }
+            //}
+
+
         }
 
         cc.Move(movement);
 
         
     }
+    void Shoot()
+    {
+        GameObject bulletObject = Instantiate(bullet, barrel.transform.position, camTransform.transform.rotation);
+        bulletObject.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+    }
+   
 }
