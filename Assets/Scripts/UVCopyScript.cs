@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UVCopyScript : MonoBehaviour
 {
+    [SerializeField] float ammo;
+    [SerializeField] float depletionAmmo;
     public GameObject brush;
     [SerializeField]Material splatter;
     [SerializeField] Material part;
@@ -52,63 +54,64 @@ public class UVCopyScript : MonoBehaviour
             img.color = color;
             //splatter.color = color;
         }
-        
+        if(ammo > 0) { 
         if (Input.GetMouseButton(0))
         {
             var Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(Ray, out hit))
-            {
-                if (hit.collider.tag != "Splatter")
+                if (Physics.Raycast(Ray, out hit))
                 {
-                    if (hit.collider.gameObject.name == "XLeft")
+                    if (hit.collider.tag != "Splatter")
                     {
-                        Debug.Log("X Left");
-                        
-                        var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(90, 0, 0), transform);
-                        go.GetComponent<Renderer>().material.color = color;
+                        ammo -= depletionAmmo;
+                        if (hit.collider.gameObject.name == "XLeft")
+                        {
+                            Debug.Log("X Left");
 
-                    }
-                    else if(hit.collider.gameObject.name == "XRight")
-                    {
-                        var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(-90, 0, 0), transform);
-                        go.GetComponent<Renderer>().material.color = color;
+                            var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(90, 0, 0), transform);
+                            go.GetComponent<Renderer>().material.color = color;
 
-                        Debug.Log("X Right");
-                    }
-                    else if(hit.collider.gameObject.name == "ZLeft")
-                    {
-                        var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 90), transform);
-                        go.GetComponent<Renderer>().material.color = color;
+                        }
+                        else if (hit.collider.gameObject.name == "XRight")
+                        {
+                            var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(-90, 0, 0), transform);
+                            go.GetComponent<Renderer>().material.color = color;
 
-                        Debug.Log("Z Left");
-                    }
-                    else if(hit.collider.gameObject.name == "ZRight")
-                    {
-                        var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, -90), transform);
-                        go.GetComponent<Renderer>().material.color = color;
-                        Debug.Log("Z Right");
-                    }
-                    else if(hit.collider.gameObject.name == "YTop")
-                    {
-                        var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
-                        go.GetComponent<Renderer>().material.color = color;
-                        Debug.Log("Y Top");
-                    }
-                    else if(hit.collider.gameObject.name == "YBottom")
-                    {
-                        var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(180, 0, 0), transform);
-                        go.GetComponent<Renderer>().material.color = color;
-                        Debug.Log("Y Bottom");
-                    }
-                    else
-                    {
-                        var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
-                        go.GetComponent<Renderer>().material.color = color;
+                            Debug.Log("X Right");
+                        }
+                        else if (hit.collider.gameObject.name == "ZLeft")
+                        {
+                            var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 90), transform);
+                            go.GetComponent<Renderer>().material.color = color;
 
+                            Debug.Log("Z Left");
+                        }
+                        else if (hit.collider.gameObject.name == "ZRight")
+                        {
+                            var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, -90), transform);
+                            go.GetComponent<Renderer>().material.color = color;
+                            Debug.Log("Z Right");
+                        }
+                        else if (hit.collider.gameObject.name == "YTop")
+                        {
+                            var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
+                            go.GetComponent<Renderer>().material.color = color;
+                            Debug.Log("Y Top");
+                        }
+                        else if (hit.collider.gameObject.name == "YBottom")
+                        {
+                            var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(180, 0, 0), transform);
+                            go.GetComponent<Renderer>().material.color = color;
+                            Debug.Log("Y Bottom");
+                        }
+                        else
+                        {
+                            var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
+                            go.GetComponent<Renderer>().material.color = color;
+
+                        }
                     }
                 }
-
                 //go.transform.localScale = Vector3.one * BrushSize;
             }
         }

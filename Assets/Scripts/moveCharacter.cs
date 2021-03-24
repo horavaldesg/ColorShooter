@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class moveCharacter : MonoBehaviour
 {
+    
+
     public CharacterController cc;
     public Transform checkPos;
     public LayerMask groundMask;
