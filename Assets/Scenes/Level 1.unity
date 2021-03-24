@@ -653,6 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
   splatter: {fileID: 2100000, guid: 173535a6cf2780346aec816d971972da, type: 2}
+  part: {fileID: 2100000, guid: 6bed8180036228940aaa615bc26657b2, type: 2}
   BrushSize: 0.1
 --- !u!1 &929471929 stripped
 GameObject:
