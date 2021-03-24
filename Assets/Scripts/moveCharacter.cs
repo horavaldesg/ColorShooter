@@ -32,6 +32,7 @@ public class moveCharacter : MonoBehaviour
     float jumpInitial;
 
     float zeroGravity;
+    Vector3 initialPos;
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +41,18 @@ public class moveCharacter : MonoBehaviour
         speedPlayer = speed;
         jumpInitial = jumpSpeed;
         zeroGravity = 0;
+        initialPos = transform.position;
+        Debug.Log(initialPos);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.transform.position.y < 0)
+        {
+            gameObject.transform.position = initialPos;
+        }
+
         if (fast)
         {
             speedPlayer = boost;
