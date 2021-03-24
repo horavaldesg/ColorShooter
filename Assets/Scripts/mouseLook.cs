@@ -23,7 +23,7 @@ public class mouseLook : MonoBehaviour
         float mouseY = -Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
         //camTransform.Rotate(new Vector3(mouseY, 0, 0));
         camRotation += mouseY;
-        camRotation = Mathf.Clamp(camRotation, -90f, 90f);
+        camRotation = Mathf.Clamp(camRotation, -80f, 90f);
         camTransform.localRotation = Quaternion.Euler(new Vector3(camRotation,0,0));
            
 
