@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class UVCopyScript : MonoBehaviour
 {
     public GameObject brush;
@@ -9,10 +9,12 @@ public class UVCopyScript : MonoBehaviour
     [SerializeField] Material part;
     public float BrushSize = 0.1f;
     Color color;
+    [SerializeField] Image img;
     // Start is called before the first frame update
     void Start()
     {
         color = Color.magenta;
+        img.color = color;
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class UVCopyScript : MonoBehaviour
         {
             color = Color.magenta;
             part.color = color;
+            img.color = color;
             //splatter.color = color;
 
         }
@@ -30,6 +33,7 @@ public class UVCopyScript : MonoBehaviour
         {
             color = Color.cyan;
             part.color = color;
+            img.color = color;
             //splatter.color = color;
 
         }
@@ -37,12 +41,14 @@ public class UVCopyScript : MonoBehaviour
         {
             color = Color.yellow;
             part.color = color;
+            img.color = color;
             //splatter.color = color;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             color = Color.black;
             part.color = color;
+            img.color = color;
             //splatter.color = color;
         }
         
