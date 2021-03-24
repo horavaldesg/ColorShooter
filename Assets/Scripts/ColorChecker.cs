@@ -17,7 +17,7 @@ public class ColorChecker : MonoBehaviour
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log(hit.gameObject.GetComponent<Renderer>().material.color);
+        //Debug.Log(hit.gameObject.GetComponent<Renderer>().material.color);
         
     }
 }

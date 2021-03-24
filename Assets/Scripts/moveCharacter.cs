@@ -62,7 +62,7 @@ public class moveCharacter : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(camTransform.position, camTransform.forward, out hit))
         {
-            Debug.Log(hit.TransformPoint);
+            
             /*Paint*/
             //if (Input.GetMouseButtonDown(0))
             //{
