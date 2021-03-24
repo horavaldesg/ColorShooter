@@ -45,7 +45,7 @@ public class ColorChecker : MonoBehaviour
             }
             else if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
             {
-                moveCharacter.gravityChange = true;
+                //moveCharacter.gravityChange = true;
                 moveCharacter.jump = false;
                 moveCharacter.fast = false;
                 Debug.Log("Yellow");
