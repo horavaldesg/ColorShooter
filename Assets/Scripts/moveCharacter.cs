@@ -20,22 +20,60 @@ public class moveCharacter : MonoBehaviour
     public GameObject bullet;
     public float bulletSpeed;
     public Transform barrel;
+    public static bool fast = false;
+    public static bool jump = false;
+    public static bool gravityChange = false;
+
+
+    public float boost = 3;
+    float speedPlayer;
+
+    public float jumpBoost = 11;
+    float jumpInitial;
+
+    float zeroGravity;
+
     // Start is called before the first frame update
     void Start()
     {
         cc = GetComponent<CharacterController>();
-        
+        speedPlayer = speed;
+        jumpInitial = jumpSpeed;
+        zeroGravity = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (fast)
+        {
+            speedPlayer = boost;
+        }
+        else
+        {
+            speedPlayer = speed;
+        }
+        if (jump)
+        {
+            jumpInitial = jumpBoost;
+        }
+        else
+        {
+            jumpInitial = jumpSpeed;
+        }
+        if (gravityChange)
+        {
+            Gravity = 0;
+        }
+        else
+        {
+            Gravity = -9.8f;
+        }
         //movement
         Vector3 movement = Vector3.zero;
-        float xSpeed = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
         movement += transform.forward * xSpeed;
-        float ySpeed = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
         movement += transform.right * ySpeed;
 
         //Gravtity
@@ -57,7 +95,7 @@ public class moveCharacter : MonoBehaviour
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
-            verticalSpeed = jumpSpeed;
+            verticalSpeed = jumpInitial;
         }
         RaycastHit hit;
         if (Physics.Raycast(camTransform.position, camTransform.forward, out hit))

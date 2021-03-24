@@ -28,21 +28,39 @@ public class ColorChecker : MonoBehaviour
         {
             if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.magenta)
             {
+                moveCharacter.fast = true;
+                moveCharacter.jump = false;
+                moveCharacter.gravityChange = false;
+
                 Debug.Log("Magenta");
             }
             else if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.cyan)
             {
+                moveCharacter.jump = true;
+                moveCharacter.fast = false;
+                moveCharacter.gravityChange = false;
+
+
                 Debug.Log("Cyan");
             }
             else if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
             {
+                moveCharacter.gravityChange = true;
+                moveCharacter.jump = false;
+                moveCharacter.fast = false;
                 Debug.Log("Yellow");
             }
             else if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.black)
             {
                 Debug.Log("Black");
             }
+            else
+            {
+                moveCharacter.jump = false;
+                moveCharacter.fast = false;
+                moveCharacter.gravityChange = false;
 
+            }
             Debug.Log(hit.gameObject.GetComponent<Renderer>().material.color);
 
         }

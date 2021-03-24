@@ -6,6 +6,7 @@ public class UVCopyScript : MonoBehaviour
 {
     public GameObject brush;
     [SerializeField]Material splatter;
+    [SerializeField] Material part;
     public float BrushSize = 0.1f;
     Color color;
     // Start is called before the first frame update
@@ -21,22 +22,27 @@ public class UVCopyScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             color = Color.magenta;
+            part.color = color;
             //splatter.color = color;
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             color = Color.cyan;
+            part.color = color;
             //splatter.color = color;
+
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             color = Color.yellow;
+            part.color = color;
             //splatter.color = color;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             color = Color.black;
+            part.color = color;
             //splatter.color = color;
         }
         

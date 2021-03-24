@@ -833,6 +833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
   splatter: {fileID: 2100000, guid: 173535a6cf2780346aec816d971972da, type: 2}
+  part: {fileID: 2100000, guid: 6bed8180036228940aaa615bc26657b2, type: 2}
   BrushSize: 0.1
 --- !u!1 &929471929 stripped
 GameObject:
@@ -6195,6 +6196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sens
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
+        type: 3}
+      propertyPath: boost
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
