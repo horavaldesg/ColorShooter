@@ -16,7 +16,7 @@ public class ParticleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             shootPart.Play();
         }
