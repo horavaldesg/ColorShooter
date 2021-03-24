@@ -479,7 +479,7 @@ PrefabInstance:
     - target: {fileID: 4094491436031954550, guid: 7e297ec7f7e904ffeb1cd6e114a0ecc7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.9
+      value: 14.26
       objectReference: {fileID: 0}
     - target: {fileID: 4094491436031954550, guid: 7e297ec7f7e904ffeb1cd6e114a0ecc7,
         type: 3}
@@ -673,7 +673,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929471929}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f0d71c09516e4e058badc28fb8ff317, type: 3}
   m_Name: 
@@ -5891,6 +5891,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
+      propertyPath: boost
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
+        type: 3}
       propertyPath: barrel
       value: 
       objectReference: {fileID: 935752194}
@@ -5958,6 +5963,11 @@ PrefabInstance:
     - target: {fileID: 5775703919086956855, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775703919514475964, guid: 17948dbf6178842d2ac9d4e138515bd5,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5775703919514475966, guid: 17948dbf6178842d2ac9d4e138515bd5,
