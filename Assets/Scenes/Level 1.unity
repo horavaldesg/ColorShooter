@@ -850,6 +850,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b68cfb45d19748429e1133c25c8d5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammo: 100
+  depletionAmmo: 0.01
   brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
   splatter: {fileID: 2100000, guid: 173535a6cf2780346aec816d971972da, type: 2}
   part: {fileID: 2100000, guid: 6bed8180036228940aaa615bc26657b2, type: 2}
@@ -868,7 +870,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929471929}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f0d71c09516e4e058badc28fb8ff317, type: 3}
   m_Name: 
@@ -1271,6 +1273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b68cfb45d19748429e1133c25c8d5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammo: 0
+  depletionAmmo: 0
   brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
   splatter: {fileID: 2100000, guid: 173535a6cf2780346aec816d971972da, type: 2}
   part: {fileID: 2100000, guid: 6bed8180036228940aaa615bc26657b2, type: 2}
@@ -1363,7 +1367,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1180246063
 PrefabInstance:
