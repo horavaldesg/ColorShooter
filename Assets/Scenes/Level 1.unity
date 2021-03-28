@@ -437,6 +437,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 689322578}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &697187124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697187126}
+  - component: {fileID: 697187125}
+  m_Layer: 0
+  m_Name: Paint Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &697187125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697187124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b68cfb45d19748429e1133c25c8d5ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: 100
+  depletionAmmo: 0.01
+  brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
+  splatter: {fileID: 2100000, guid: 173535a6cf2780346aec816d971972da, type: 2}
+  part: {fileID: 2100000, guid: 6bed8180036228940aaa615bc26657b2, type: 2}
+  BrushSize: 0.1
+  img: {fileID: 1377371808}
+--- !u!4 &697187126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697187124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &699984893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -740,8 +790,6 @@ GameObject:
   - component: {fileID: 900422506}
   - component: {fileID: 900422505}
   - component: {fileID: 900422504}
-  - component: {fileID: 900422508}
-  - component: {fileID: 900422509}
   m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
@@ -822,41 +870,8 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &900422508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900422503}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9340f83d20e74ca418258dd5c13f1538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootPart: {fileID: 1187239276}
-  brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
---- !u!114 &900422509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900422503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b68cfb45d19748429e1133c25c8d5ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: 100
-  depletionAmmo: 0.01
-  brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
-  splatter: {fileID: 2100000, guid: 173535a6cf2780346aec816d971972da, type: 2}
-  part: {fileID: 2100000, guid: 6bed8180036228940aaa615bc26657b2, type: 2}
-  BrushSize: 0.1
-  img: {fileID: 1377371808}
 --- !u!1 &929471929 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5775703919086956848, guid: 17948dbf6178842d2ac9d4e138515bd5,
@@ -1252,8 +1267,6 @@ GameObject:
   - component: {fileID: 1166442621}
   - component: {fileID: 1166442620}
   - component: {fileID: 1166442619}
-  - component: {fileID: 1166442618}
-  - component: {fileID: 1166442617}
   m_Layer: 8
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -1261,39 +1274,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1166442617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166442616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b68cfb45d19748429e1133c25c8d5ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: 0
-  depletionAmmo: 0
-  brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
-  splatter: {fileID: 2100000, guid: 173535a6cf2780346aec816d971972da, type: 2}
-  part: {fileID: 2100000, guid: 6bed8180036228940aaa615bc26657b2, type: 2}
-  BrushSize: 0.1
-  img: {fileID: 1377371808}
---- !u!114 &1166442618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166442616}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9340f83d20e74ca418258dd5c13f1538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootPart: {fileID: 1187239276}
-  brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
 --- !u!64 &1166442619
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1367,7 +1347,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1180246063
 PrefabInstance:
@@ -6873,7 +6853,7 @@ Transform:
   - {fileID: 1119450594}
   - {fileID: 1927871140}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1514232629
 GameObject:
@@ -7078,7 +7058,7 @@ PrefabInstance:
     - target: {fileID: 5775703919086956855, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5775703919086956855, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
