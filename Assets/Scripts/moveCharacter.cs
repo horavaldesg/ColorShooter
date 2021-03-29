@@ -15,7 +15,7 @@ public class moveCharacter : MonoBehaviour
     public float verticalSpeed = 0;
     public float Gravity = -9.8f;
     public float jumpSpeed = 9;
-    bool grounded;
+    public bool grounded;
     int i;
     public static Vector2 coord;
 
@@ -63,14 +63,14 @@ public class moveCharacter : MonoBehaviour
         {
             speedPlayer = speed;
         }
-        if (jump)
-        {
-            jumpInitial = jumpBoost;
-        }
-        else
-        {
-            jumpInitial = jumpSpeed;
-        }
+        //if (jump)
+        //{
+        //    verticalSpeed = jumpSpeed;
+        //}
+        //else
+        //{
+        //    jumpInitial = jumpSpeed;
+        //}
         if (gravityChange)
         {
             Gravity = 0;
@@ -135,4 +135,5 @@ public class moveCharacter : MonoBehaviour
         bulletObject.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
     }
    
+
 }

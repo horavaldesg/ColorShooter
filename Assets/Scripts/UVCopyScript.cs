@@ -61,7 +61,7 @@ public class UVCopyScript : MonoBehaviour
             RaycastHit hit;
                 if (Physics.Raycast(Ray, out hit))
                 {
-                    if (hit.collider.tag != "Splatter")
+                    if (hit.collider.tag != "Splatter" && hit.collider.tag != "Player")
                     {
                         ammo -= depletionAmmo;
                         if (hit.collider.gameObject.name == "XLeft")
