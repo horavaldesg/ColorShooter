@@ -17,6 +17,7 @@ public class UVCopyScript : MonoBehaviour
     {
         color = Color.magenta;
         img.color = color;
+        part.color = color;
        
     }
 
