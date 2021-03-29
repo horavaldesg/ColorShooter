@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Splatter
   - Button
+  - SceneSwitch
   layers:
   - Default
   - TransparentFX
