@@ -122,12 +122,18 @@ public class moveCharacter : MonoBehaviour
             if (hit.collider.CompareTag("Button"))
             {
                 interactButtonText.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    DoorMoveScript.buttonPushed = true;
+                }
+               
 
 
             }
             else
             {
                 interactButtonText.SetActive(false);
+                DoorMoveScript.buttonPushed = false;
             }
      
         }
