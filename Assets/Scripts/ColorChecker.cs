@@ -130,7 +130,7 @@ public class ColorChecker : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        GetComponentInParent<moveCharacter>().gravityChange = false;
+        //GetComponentInParent<moveCharacter>().gravityChange = false;
 
     }
 }
