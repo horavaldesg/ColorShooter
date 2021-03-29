@@ -134,7 +134,7 @@ public class moveCharacter : MonoBehaviour
             else
             {
                 interactButtonText.SetActive(false);
-                DoorMoveScript.buttonPushed = false;
+                //DoorMoveScript.buttonPushed = false;
             }
      
         }
