@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 673624166423902539}
   - component: {fileID: 2203552928944474343}
-  - component: {fileID: 402179478084923138}
+  - component: {fileID: 2228368190232353865}
   - component: {fileID: 371325371731808454}
   - component: {fileID: 7907521729355794327}
   m_Layer: 9
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4414535661686229633}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 2.25, z: 1.25}
+  m_LocalScale: {x: 2.75, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 5775703919086956855}
   m_RootOrder: 0
@@ -42,8 +42,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4414535661686229633}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &402179478084923138
-BoxCollider:
+--- !u!135 &2228368190232353865
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,7 +53,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &371325371731808454
 MonoBehaviour:
@@ -211,7 +211,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!114 &5775703919086956854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,21 +228,23 @@ MonoBehaviour:
   checkPos: {fileID: 5775703920817672164}
   groundMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   camTransform: {fileID: 5775703919664929495}
   newMaterial:
   - {fileID: 2100000, guid: 7e97a66d539a045c68a72717b742af19, type: 2}
   - {fileID: 2100000, guid: d1269417a6409421192b99f100bc40be, type: 2}
   - {fileID: 2100000, guid: 19de484c465c340a6adc8f3c0e3e90cf, type: 2}
-  speed: 5
+  speed: 4
   verticalSpeed: 0
   Gravity: -9.8
-  jumpSpeed: 9
-  bullet: {fileID: 0}
+  jumpSpeed: 5
+  grounded: 0
+  bullet: {fileID: 3704720701700651520, guid: dcf672d39c9674f20b543111f3e0b74b, type: 3}
   bulletSpeed: 0
-  barrel: {fileID: 0}
-  boost: 3
-  jumpBoost: 11
+  barrel: {fileID: 1679927449250186784}
+  gravityChange: 0
+  boost: 8
+  jumpBoost: 10
 --- !u!114 &5775703919086956852
 MonoBehaviour:
   m_ObjectHideFlags: 0

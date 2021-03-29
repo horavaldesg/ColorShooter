@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorMoveScript : MonoBehaviour
 {
-    public bool buttonPushed;
+    public static bool buttonPushed;
 
     // Start is called before the first frame update
     void Start()
