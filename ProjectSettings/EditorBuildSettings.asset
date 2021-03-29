@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Start Scene.unity
+    guid: d718c9a9233f4a74092d3246feea88fc
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 13b8ab746031c47479f792b5cf9e9a3d
-  - enabled: 1
-    path: Assets/Scenes/Brendan.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
