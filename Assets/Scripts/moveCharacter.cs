@@ -45,7 +45,7 @@ public class moveCharacter : MonoBehaviour
         jumpInitial = jumpSpeed;
         zeroGravity = 0;
         initialPos = transform.position;
-        Debug.Log(initialPos);
+        //Debug.Log(initialPos);
     }
 
     // Update is called once per frame
@@ -124,6 +124,7 @@ public class moveCharacter : MonoBehaviour
                 interactButtonText.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    //hit.collider.GetComponent<Animation>().Play("");
                     interactButtonText.SetActive(false);
                     DoorMoveScript.buttonPushed = true;
                 }
@@ -134,7 +135,7 @@ public class moveCharacter : MonoBehaviour
             else
             {
                 interactButtonText.SetActive(false);
-                DoorMoveScript.buttonPushed = false;
+                //DoorMoveScript.buttonPushed = false;
             }
      
         }
@@ -143,11 +144,7 @@ public class moveCharacter : MonoBehaviour
 
         
     }
-    void Shoot()
-    {
-        GameObject bulletObject = Instantiate(bullet, barrel.transform.position, camTransform.transform.rotation);
-        bulletObject.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
-    }
+    
    
 
 }
