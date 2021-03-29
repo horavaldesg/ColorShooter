@@ -66,7 +66,7 @@ public class UVCopyScript : MonoBehaviour
                         ammo -= depletionAmmo;
                         if (hit.collider.gameObject.name == "XLeft")
                         {
-                            Debug.Log("X Left");
+                            //Debug.Log("X Left");
 
                             var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(90, 0, 0), transform);
                             go.GetComponent<Renderer>().material.color = color;
@@ -77,32 +77,32 @@ public class UVCopyScript : MonoBehaviour
                             var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(-90, 0, 0), transform);
                             go.GetComponent<Renderer>().material.color = color;
 
-                            Debug.Log("X Right");
+                            //Debug.Log("X Right");
                         }
                         else if (hit.collider.gameObject.name == "ZLeft")
                         {
                             var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 90), transform);
                             go.GetComponent<Renderer>().material.color = color;
 
-                            Debug.Log("Z Left");
+                            //Debug.Log("Z Left");
                         }
                         else if (hit.collider.gameObject.name == "ZRight")
                         {
                             var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, -90), transform);
                             go.GetComponent<Renderer>().material.color = color;
-                            Debug.Log("Z Right");
+                            //Debug.Log("Z Right");
                         }
                         else if (hit.collider.gameObject.name == "YTop")
                         {
                             var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
                             go.GetComponent<Renderer>().material.color = color;
-                            Debug.Log("Y Top");
+                            //Debug.Log("Y Top");
                         }
                         else if (hit.collider.gameObject.name == "YBottom")
                         {
                             var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(180, 0, 0), transform);
                             go.GetComponent<Renderer>().material.color = color;
-                            Debug.Log("Y Bottom");
+                            //Debug.Log("Y Bottom");
                         }
                         else
                         {

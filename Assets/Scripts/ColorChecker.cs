@@ -83,7 +83,7 @@ public class ColorChecker : MonoBehaviour
             other.gameObject.name != "ZRight" &&
             other.gameObject.name != "YTop" &&
             other.gameObject.name != "YBottom")
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
         {
             //Fast
             if (other.gameObject.GetComponent<Renderer>().material.color == Color.magenta)
@@ -91,7 +91,7 @@ public class ColorChecker : MonoBehaviour
                 moveCharacter.fast = true;
                 moveCharacter.jump = false;
 
-                Debug.Log("Magenta");
+                //Debug.Log("Magenta");
             }
             //Jump
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.cyan)
@@ -101,7 +101,7 @@ public class ColorChecker : MonoBehaviour
                 moveCharacter.fast = false;
 
 
-                Debug.Log("Cyan");
+                //Debug.Log("Cyan");
             }
             //Gravity
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
@@ -114,7 +114,7 @@ public class ColorChecker : MonoBehaviour
             }
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.black)
             {
-                Debug.Log("Black");
+                //Debug.Log("Black");
             }
             else
             {
