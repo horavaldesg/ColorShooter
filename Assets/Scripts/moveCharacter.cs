@@ -117,7 +117,7 @@ public class moveCharacter : MonoBehaviour
             verticalSpeed = jumpInitial;
         }
         RaycastHit hit;
-        if (Physics.Raycast(camTransform.position, camTransform.forward, out hit, 3))
+        if (Physics.Raycast(camTransform.position, camTransform.forward, out hit, 6))
         {
             if (hit.collider.CompareTag("Button"))
             {
