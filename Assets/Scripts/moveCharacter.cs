@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class moveCharacter : MonoBehaviour
 {
-    
+    public GameObject interactButtonText;
 
     public CharacterController cc;
     public Transform checkPos;
@@ -118,21 +119,19 @@ public class moveCharacter : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(camTransform.position, camTransform.forward, out hit))
         {
-            
-            /*Paint*/
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            //    //i = Random.Range(0, newMaterial.Length);
-            //    //hit.transform.gameObject.GetComponent<MeshRenderer>().material = newMaterial[i];
-            //    coord = hit.textureCoord;
-            //    Shoot();
-                
-
-            //}
+            if (hit.collider.CompareTag("Button"))
+            {
+                interactButtonText.SetActive(true);
 
 
+            }
+            else
+            {
+                interactButtonText.SetActive(false);
+            }
+     
         }
-
+        
         cc.Move(movement);
 
         

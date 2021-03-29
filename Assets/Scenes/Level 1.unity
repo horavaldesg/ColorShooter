@@ -7058,11 +7058,6 @@ PrefabInstance:
       propertyPath: sens
       value: 200
       objectReference: {fileID: 0}
-    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
-        type: 3}
-      propertyPath: groundMask.m_Bits
-      value: 1280
-      objectReference: {fileID: 0}
     - target: {fileID: 5775703919086956855, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
       propertyPath: m_RootOrder

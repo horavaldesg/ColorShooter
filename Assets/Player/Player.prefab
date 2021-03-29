@@ -228,7 +228,7 @@ MonoBehaviour:
   checkPos: {fileID: 5775703920817672164}
   groundMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   camTransform: {fileID: 5775703919664929495}
   newMaterial:
   - {fileID: 2100000, guid: 7e97a66d539a045c68a72717b742af19, type: 2}
