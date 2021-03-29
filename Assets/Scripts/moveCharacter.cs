@@ -117,14 +117,14 @@ public class moveCharacter : MonoBehaviour
             verticalSpeed = jumpInitial;
         }
         RaycastHit hit;
-        if (Physics.Raycast(camTransform.position, camTransform.forward, out hit))
+        if (Physics.Raycast(camTransform.position, camTransform.forward, out hit, 3))
         {
             if (hit.collider.CompareTag("Button"))
             {
                 interactButtonText.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    //hit.collider.GetComponent<Animation>().Play("");
+                    hit.collider.GetComponentInParent<Animator>().Play("ButtonPushed");
                     interactButtonText.SetActive(false);
                     DoorMoveScript.buttonPushed = true;
                 }
@@ -139,7 +139,11 @@ public class moveCharacter : MonoBehaviour
             }
      
         }
-        
+        else
+        interactButtonText.SetActive(false);
+
+
+
         cc.Move(movement);
 
         
