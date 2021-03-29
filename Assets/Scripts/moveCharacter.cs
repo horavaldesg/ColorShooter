@@ -124,6 +124,7 @@ public class moveCharacter : MonoBehaviour
                 interactButtonText.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    interactButtonText.SetActive(false);
                     DoorMoveScript.buttonPushed = true;
                 }
                
