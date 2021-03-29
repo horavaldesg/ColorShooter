@@ -41,20 +41,20 @@ public class UVCopyScript : MonoBehaviour
             //splatter.color = color;
 
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            color = Color.yellow;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            color = Color.black;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
-        }
+        //else if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    color = Color.yellow;
+        //    part.color = color;
+        //    img.color = color;
+        //    //splatter.color = color;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    color = Color.black;
+        //    part.color = color;
+        //    img.color = color;
+        //    //splatter.color = color;
+        //}
         if(ammo > 0) { 
         if (Input.GetMouseButton(0))
         {
@@ -101,7 +101,7 @@ public class UVCopyScript : MonoBehaviour
                         }
                         else if (hit.collider.gameObject.name == "YBottom")
                         {
-                            var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(180, 0, 0), transform);
+                            var go = Instantiate(brush, hit.point - Vector3.up * 0.1f, Quaternion.Euler(180, 0, 0), transform);
                             go.GetComponent<Renderer>().material.color = color;
                             //Debug.Log("Y Bottom");
                         }

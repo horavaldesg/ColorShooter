@@ -88,7 +88,8 @@ public class ColorChecker : MonoBehaviour
             //Fast
             if (other.gameObject.GetComponent<Renderer>().material.color == Color.magenta)
             {
-                moveCharacter.fast = true;
+                GetComponentInParent<moveCharacter>().speedPlayer = GetComponentInParent<moveCharacter>().boost; 
+                //moveCharacter.fast = true;
                 moveCharacter.jump = false;
 
                 //Debug.Log("Magenta");
@@ -105,7 +106,7 @@ public class ColorChecker : MonoBehaviour
             }
             //Gravity
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
-            {
+            { 
                 GetComponentInParent<moveCharacter>().gravityChange = true;
                 GetComponentInParent<moveCharacter>().verticalSpeed = 0;
                 moveCharacter.jump = false;

@@ -29,7 +29,7 @@ public class moveCharacter : MonoBehaviour
 
 
     public float boost = 3;
-    float speedPlayer;
+    public float speedPlayer;
 
     public float jumpBoost = 11;
     float jumpInitial;
