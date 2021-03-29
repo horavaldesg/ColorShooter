@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using UnityEngine.SceneManagement;
+
 public class moveCharacter : MonoBehaviour
 {
+    public string scene;
     public GameObject interactButtonText;
 
     public CharacterController cc;
@@ -136,6 +137,14 @@ public class moveCharacter : MonoBehaviour
             {
                 interactButtonText.SetActive(false);
                 //DoorMoveScript.buttonPushed = false;
+            }
+            if (hit.collider.CompareTag("SceneSwitch"))
+            {
+                interactButtonText.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    SceneManager.LoadScene(scene); 
+                }
             }
      
         }
