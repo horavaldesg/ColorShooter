@@ -24,7 +24,7 @@ public class moveCharacter : MonoBehaviour
     public Transform barrel;
     public static bool fast = false;
     public static bool jump = false;
-    public static bool gravityChange = false;
+    public bool gravityChange = false;
 
 
     public float boost = 3;
@@ -70,24 +70,32 @@ public class moveCharacter : MonoBehaviour
         //else
         //{
         //    jumpInitial = jumpSpeed;
-        //}
-        if (gravityChange)
+
+        //movement
+        Vector3 movement = Vector3.zero;
+        if (!gravityChange)
         {
-            Gravity = 0;
+           
+            float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
+            movement += transform.forward * xSpeed;
+            float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            movement += transform.right * ySpeed;
         }
         else
         {
-            Gravity = -9.8f;
-        }
-        //movement
-        Vector3 movement = Vector3.zero;
-        float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
-        movement += transform.forward * xSpeed;
-        float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
-        movement += transform.right * ySpeed;
+            float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
+            movement += transform.up * xSpeed;
+            float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            movement += transform.right * ySpeed;
 
+        }
         //Gravtity
-        verticalSpeed += Gravity * Time.deltaTime;
+        if (!gravityChange)
+        {
+            verticalSpeed += Gravity * Time.deltaTime;
+
+        }
+        
 
         movement += transform.up * verticalSpeed * Time.deltaTime;
 

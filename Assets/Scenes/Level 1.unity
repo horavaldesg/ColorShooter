@@ -890,12 +890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0d71c09516e4e058badc28fb8ff317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &935752194 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1679927449250186784, guid: 17948dbf6178842d2ac9d4e138515bd5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1771648986}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -7019,6 +7013,21 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3968635670849213901, guid: 17948dbf6178842d2ac9d4e138515bd5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877129885915750171, guid: 17948dbf6178842d2ac9d4e138515bd5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877129885915750171, guid: 17948dbf6178842d2ac9d4e138515bd5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5417829521903754569, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
       propertyPath: m_Layer
@@ -7048,27 +7057,6 @@ PrefabInstance:
         type: 3}
       propertyPath: sens
       value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
-        type: 3}
-      propertyPath: boost
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
-        type: 3}
-      propertyPath: barrel
-      value: 
-      objectReference: {fileID: 935752194}
-    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 3704720701700651520, guid: dcf672d39c9674f20b543111f3e0b74b,
-        type: 3}
-    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
-        type: 3}
-      propertyPath: jumpSpeed
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}

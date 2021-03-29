@@ -90,7 +90,6 @@ public class ColorChecker : MonoBehaviour
             {
                 moveCharacter.fast = true;
                 moveCharacter.jump = false;
-                moveCharacter.gravityChange = false;
 
                 Debug.Log("Magenta");
             }
@@ -98,9 +97,8 @@ public class ColorChecker : MonoBehaviour
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.cyan)
             {
 
-                GetComponentInParent<moveCharacter>().verticalSpeed = GetComponentInParent<moveCharacter>().jumpSpeed;
+                GetComponentInParent<moveCharacter>().verticalSpeed = GetComponentInParent<moveCharacter>().jumpBoost;
                 moveCharacter.fast = false;
-                moveCharacter.gravityChange = false;
 
 
                 Debug.Log("Cyan");
@@ -108,6 +106,7 @@ public class ColorChecker : MonoBehaviour
             //Gravity
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
             {
+                GetComponentInParent<moveCharacter>().gravityChange = true;
                 GetComponentInParent<moveCharacter>().verticalSpeed = 0;
                 moveCharacter.jump = false;
                 moveCharacter.fast = false;
@@ -121,13 +120,17 @@ public class ColorChecker : MonoBehaviour
             {
                 moveCharacter.jump = false;
                 moveCharacter.fast = false;
-                moveCharacter.gravityChange = false;
 
             }
             //Debug.Log(other.gameObject.GetComponent<Renderer>().material.color);
 
         }
-
+        
         //}
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        GetComponentInParent<moveCharacter>().gravityChange = false;
+
     }
 }
