@@ -1038,6 +1038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b68cfb45d19748429e1133c25c8d5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camTransform: {fileID: 1771648987}
   ammo: 100
   depletionAmmo: 0.01
   brush: {fileID: 8692828071760377128, guid: e8b5eb25828df534fa21501a46adff09, type: 3}
@@ -3715,6 +3716,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5775703919514475965, guid: 17948dbf6178842d2ac9d4e138515bd5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17948dbf6178842d2ac9d4e138515bd5, type: 3}
+--- !u!4 &1771648987 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5775703919664929495, guid: 17948dbf6178842d2ac9d4e138515bd5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771648986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1831002608
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UVCopyScript : MonoBehaviour
 {
+    public Transform camTransform;
     [SerializeField] float ammo;
     [SerializeField] float depletionAmmo;
     public GameObject brush;
@@ -58,9 +59,9 @@ public class UVCopyScript : MonoBehaviour
         if(ammo > 0) { 
         if (Input.GetMouseButton(0))
         {
-            var Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
             RaycastHit hit;
-                if (Physics.Raycast(Ray, out hit))
+                if (Physics.Raycast(camTransform.transform.position, camTransform.forward, out hit))
                 {
                     if (hit.collider.tag != "Splatter" && hit.collider.tag != "Player" && hit.collider.tag != "Button")
                     {
