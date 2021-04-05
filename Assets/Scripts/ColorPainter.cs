@@ -83,7 +83,7 @@ public class ColorPainter : MonoBehaviour
                 {
                     brush.tag = "Splatter";
                     brush.layer = 10;
-                    if (hit.collider.tag == "Black" && hit.collider.tag != "Splatter" && hit.collider.tag != "Player" && hit.collider.tag != "Button")
+                    if (hit.collider.tag == "Black" && hit.collider.tag != "Splatter" && hit.collider.tag != "Player" && hit.collider.tag != "Button" && hit.collider.tag != "SceneSwitch")
                     {
                         hit.collider.GetComponent<Renderer>().material.color = color;
                         landAudio.PlayOneShot(clip);
