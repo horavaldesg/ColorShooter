@@ -5,11 +5,13 @@ using UnityEngine;
 public class GunAnimationController : MonoBehaviour
 {
     Animator anim;
+    AudioSource spraySound;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        spraySound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -18,11 +20,14 @@ public class GunAnimationController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             anim.SetBool("GunShoot", true);
+            spraySound.Play();
+
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             anim.SetBool("GunShoot", false);
+            spraySound.Pause();
         }
     }
 }
