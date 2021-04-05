@@ -85,6 +85,11 @@ public class ColorPainter : MonoBehaviour
                     {
                         brush.tag = "Splatter";
                         brush.layer = 10;
+                        if(hit.collider.tag == "Black")
+                        {
+                            hit.collider.GetComponent<Renderer>().material.color = color;
+                            landAudio.PlayOneShot(clip);
+                        }
                         if (hit.collider.tag != "Splatter" && hit.collider.tag != "Player" && hit.collider.tag != "Button")
                         {
                             ammo -= depletionAmmo;
@@ -152,8 +157,9 @@ public class ColorPainter : MonoBehaviour
                     {
                         if (hit.collider.tag == "Splatter" && hit.collider.tag != "Player" && hit.collider.tag != "Button" && hit.collider.gameObject.layer != 8)
                         {
+                            hit.collider.tag = "Black";
                             hit.collider.GetComponent<Renderer>().material.color = color;
-                            landAudio.Play();
+                            landAudio.PlayOneShot(clip);
                         }
                     }
                     //go.transform.localScale = Vector3.one * BrushSize;
