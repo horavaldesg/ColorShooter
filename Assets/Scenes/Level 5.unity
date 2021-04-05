@@ -1282,12 +1282,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1771648986}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &826570911 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7869184706770732155, guid: 17948dbf6178842d2ac9d4e138515bd5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1771648986}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &826570912
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1384,12 +1378,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &853444872 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5775703919514475966, guid: 17948dbf6178842d2ac9d4e138515bd5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1771648986}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &900422503
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,16 +3257,6 @@ PrefabInstance:
       propertyPath: sens
       value: 200
       objectReference: {fileID: 0}
-    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
-        type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 826570911}
-    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
-        type: 3}
-      propertyPath: body
-      value: 
-      objectReference: {fileID: 853444872}
     - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
       propertyPath: scene
