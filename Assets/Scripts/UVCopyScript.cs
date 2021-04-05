@@ -42,21 +42,21 @@ public class UVCopyScript : MonoBehaviour
             //splatter.color = color;
 
         }
-        //else if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    color = Color.yellow;
-        //    part.color = color;
-        //    img.color = color;
-        //    //splatter.color = color;
-        //}
-        //else if (Input.GetKeyDown(KeyCode.Alpha4))
-        //{
-        //    color = Color.black;
-        //    part.color = color;
-        //    img.color = color;
-        //    //splatter.color = color;
-        //}
-        if(ammo > 0) { 
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            color = Color.yellow;
+            part.color = color;
+            img.color = color;
+            //splatter.color = color;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            color = Color.black;
+            part.color = color;
+            img.color = color;
+            //splatter.color = color;
+        }
+        if (ammo > 0) { 
         if (Input.GetMouseButton(0))
         {
             

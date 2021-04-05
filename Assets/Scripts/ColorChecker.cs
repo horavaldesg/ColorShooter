@@ -98,7 +98,9 @@ public class ColorChecker : MonoBehaviour
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.cyan)
             {
 
-                GetComponentInParent<moveCharacter>().verticalSpeed = GetComponentInParent<moveCharacter>().jumpBoost;
+                //GetComponentInParent<moveCharacter>().verticalSpeed = GetComponentInParent<moveCharacter>().jumpBoost;
+                moveCharacter.jump = true;
+                Debug.Log("Jump 1");
                 moveCharacter.fast = false;
 
 
@@ -108,7 +110,8 @@ public class ColorChecker : MonoBehaviour
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
             { 
                 GetComponentInParent<moveCharacter>().gravityChange = true;
-                GetComponentInParent<moveCharacter>().verticalSpeed = 0;
+                GetComponentInParent<Transform>().rotation =  Quaternion.Euler(90, transform.rotation.y, transform.rotation.z);
+                //GetComponentInParent<moveCharacter>().verticalSpeed = 0;
                 moveCharacter.jump = false;
                 moveCharacter.fast = false;
                 Debug.Log("Yellow");
@@ -119,7 +122,7 @@ public class ColorChecker : MonoBehaviour
             }
             else
             {
-                moveCharacter.jump = false;
+                //moveCharacter.jump = false;
                 moveCharacter.fast = false;
 
             }

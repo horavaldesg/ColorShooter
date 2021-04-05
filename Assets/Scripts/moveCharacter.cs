@@ -65,16 +65,18 @@ public class moveCharacter : MonoBehaviour
         {
             speedPlayer = speed;
         }
-        //if (jump)
-        //{
-        //    verticalSpeed = jumpSpeed;
-        //}
-        //else
-        //{
-        //    jumpInitial = jumpSpeed;
+        if (jump)
+        {
+            Debug.Log("Jump");
+            jumpInitial = jumpBoost;
+        }
+        else
+        {
+            jumpInitial = jumpSpeed;
+        }
 
-        //movement
-        Vector3 movement = Vector3.zero;
+            //movement
+            Vector3 movement = Vector3.zero;
         if (!gravityChange)
         {
            
@@ -86,9 +88,10 @@ public class moveCharacter : MonoBehaviour
         else
         {
             float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
-            movement += transform.up * xSpeed;
+            movement += transform.forward * xSpeed;
             float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
             movement += transform.right * ySpeed;
+            
 
         }
         //Gravtity
@@ -96,6 +99,10 @@ public class moveCharacter : MonoBehaviour
         {
             verticalSpeed += Gravity * Time.deltaTime;
 
+        }
+        else if (gravityChange)
+        {
+            verticalSpeed -= Gravity * Time.deltaTime;
         }
         
 
@@ -116,6 +123,7 @@ public class moveCharacter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             verticalSpeed = jumpInitial;
+            jump = false;
         }
         RaycastHit hit;
         if (Physics.Raycast(camTransform.position, camTransform.forward, out hit, 6))
