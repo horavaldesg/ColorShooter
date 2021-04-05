@@ -9,6 +9,7 @@ public class ColorPainter : MonoBehaviour
     public bool yellow;
     public bool black;
     public AudioSource landAudio;
+    public AudioClip clip;
     public Transform camTransform;
     [SerializeField] float ammo;
     [SerializeField] float depletionAmmo;
@@ -93,23 +94,23 @@ public class ColorPainter : MonoBehaviour
 
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(90, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
-                                landAudio.Play();
-                                landAudio.loop = true;
+                                landAudio.PlayOneShot(clip);
+                                //landAudio.loop = true;
                             }
                             else if (hit.collider.gameObject.name == "XRight")
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(-90, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
-                                landAudio.Play();
-                                landAudio.loop = true;
+                                landAudio.PlayOneShot(clip);
+                                //landAudio.loop = true;
                                 //Debug.Log("X Right");
                             }
                             else if (hit.collider.gameObject.name == "ZLeft")
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 90), transform);
                                 go.GetComponent<Renderer>().material.color = color;
-                                landAudio.Play();
-                                landAudio.loop = true;
+                                landAudio.PlayOneShot(clip);
+                                //landAudio.loop = true;
 
                                 //Debug.Log("Z Left");
                             }
@@ -117,32 +118,32 @@ public class ColorPainter : MonoBehaviour
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, -90), transform);
                                 go.GetComponent<Renderer>().material.color = color;
-                                landAudio.Play();
-                                landAudio.loop = true;
+                                landAudio.PlayOneShot(clip);
+                                //landAudio.loop = true;
                                 //Debug.Log("Z Right");
                             }
                             else if (hit.collider.gameObject.name == "YTop")
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
-                                landAudio.Play();
-                                landAudio.loop = true;
+                                landAudio.PlayOneShot(clip);
+                                //landAudio.loop = true;
                                 //Debug.Log("Y Top");
                             }
                             else if (hit.collider.gameObject.name == "YBottom")
                             {
                                 var go = Instantiate(brush, hit.point - Vector3.up * 0.1f, Quaternion.Euler(180, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
-                                landAudio.Play();
-                                landAudio.loop = true;
+                                landAudio.PlayOneShot(clip);
+                                //landAudio.loop = true;
                                 //Debug.Log("Y Bottom");
                             }
                             else
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
-                                landAudio.Play();
-                                landAudio.loop = true;
+                                landAudio.PlayOneShot(clip);
+                                //landAudio.loop = true;
 
                             }
                         }

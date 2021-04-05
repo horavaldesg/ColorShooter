@@ -49,6 +49,7 @@ MonoBehaviour:
   yellow: 1
   black: 1
   landAudio: {fileID: 5814490380542008431}
+  clip: {fileID: 8300000, guid: 00e133e63f56b9041b6a4d0289b134d9, type: 3}
   camTransform: {fileID: 0}
   ammo: 100
   depletionAmmo: 0.01
