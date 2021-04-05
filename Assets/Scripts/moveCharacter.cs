@@ -81,9 +81,9 @@ public class moveCharacter : MonoBehaviour
         if (!gravityChange)
         {
            
-            float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
+            float xSpeed = -Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
             movement += transform.forward * xSpeed;
-            float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            float ySpeed = -Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
             movement += transform.right * ySpeed;
         }
         else
@@ -203,4 +203,9 @@ public class moveCharacter : MonoBehaviour
     {
         body.transform.rotation = Quaternion.Euler(0, 0, 180);
     }
+    public static void RotateBodyBack(Transform body)
+    {
+        body.transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
 }
