@@ -217,6 +217,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5814490380542008429, guid: 93ce5e95f8bf741c38c1e620a3baccb0,
         type: 3}
+      propertyPath: img
+      value: 
+      objectReference: {fileID: 1216762916}
+    - target: {fileID: 5814490380542008429, guid: 93ce5e95f8bf741c38c1e620a3baccb0,
+        type: 3}
       propertyPath: camTransform
       value: 
       objectReference: {fileID: 1771648987}
@@ -2784,6 +2789,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1203732605}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1216762916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3715542523439455072, guid: 17948dbf6178842d2ac9d4e138515bd5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771648986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1226535844
 PrefabInstance:
   m_ObjectHideFlags: 0
