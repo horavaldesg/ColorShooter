@@ -94,14 +94,14 @@ public class ColorPainter : MonoBehaviour
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(90, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
                                 landAudio.Play();
-
+                                landAudio.loop = true;
                             }
                             else if (hit.collider.gameObject.name == "XRight")
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(-90, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
                                 landAudio.Play();
-
+                                landAudio.loop = true;
                                 //Debug.Log("X Right");
                             }
                             else if (hit.collider.gameObject.name == "ZLeft")
@@ -109,6 +109,7 @@ public class ColorPainter : MonoBehaviour
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 90), transform);
                                 go.GetComponent<Renderer>().material.color = color;
                                 landAudio.Play();
+                                landAudio.loop = true;
 
                                 //Debug.Log("Z Left");
                             }
@@ -117,6 +118,7 @@ public class ColorPainter : MonoBehaviour
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, -90), transform);
                                 go.GetComponent<Renderer>().material.color = color;
                                 landAudio.Play();
+                                landAudio.loop = true;
                                 //Debug.Log("Z Right");
                             }
                             else if (hit.collider.gameObject.name == "YTop")
@@ -124,6 +126,7 @@ public class ColorPainter : MonoBehaviour
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
                                 landAudio.Play();
+                                landAudio.loop = true;
                                 //Debug.Log("Y Top");
                             }
                             else if (hit.collider.gameObject.name == "YBottom")
@@ -131,6 +134,7 @@ public class ColorPainter : MonoBehaviour
                                 var go = Instantiate(brush, hit.point - Vector3.up * 0.1f, Quaternion.Euler(180, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
                                 landAudio.Play();
+                                landAudio.loop = true;
                                 //Debug.Log("Y Bottom");
                             }
                             else
@@ -138,6 +142,7 @@ public class ColorPainter : MonoBehaviour
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
                                 landAudio.Play();
+                                landAudio.loop = true;
 
                             }
                         }
