@@ -42,9 +42,12 @@ public class moveCharacter : MonoBehaviour
     float zeroGravity;
     Vector3 initialPos;
 
+    string currentScene;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         cc = GetComponent<CharacterController>();
         speedPlayer = speed;
         jumpInitial = jumpSpeed;

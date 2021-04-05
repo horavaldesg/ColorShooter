@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ColorChecker : MonoBehaviour
 {
     public Transform body;
+    string scene;
     // Start is called before the first frame update
     void Start()
     {
-        
+        scene = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -70,6 +71,11 @@ public class ColorChecker : MonoBehaviour
     //}
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Respawn"))
+        {
+            SceneManager.LoadScene(scene);
+        }
+        
         if (other.name == "YTop")
         {
             GetComponentInParent<moveCharacter>().grounded = true;
