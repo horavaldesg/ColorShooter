@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class moveCharacter : MonoBehaviour
 {
-    public GameObject body;
+    //public GameObject body;
     public string scene;
     public GameObject interactButtonText;
 
@@ -68,7 +68,7 @@ public class moveCharacter : MonoBehaviour
         }
         if (jump)
         {
-            Debug.Log("Jump");
+            //Debug.Log("Jump");
             jumpInitial = jumpBoost;
         }
         else
@@ -89,7 +89,7 @@ public class moveCharacter : MonoBehaviour
         else
         {
 
-            float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
+            float xSpeed = -Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
             movement += transform.forward * xSpeed;
             float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
             movement += transform.right * ySpeed;
@@ -105,7 +105,9 @@ public class moveCharacter : MonoBehaviour
         else if (gravityChange)
         {
             verticalSpeed -= Gravity * Time.deltaTime;
-            body.transform.rotation = Quaternion.Euler(body.transform.rotation.x, body.transform.rotation.y, 180);
+           
+
+            
             //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 180);
         }
         
@@ -197,5 +199,8 @@ public class moveCharacter : MonoBehaviour
     }
     
    
-
+    public static void RotateBody(Transform body)
+    {
+        body.transform.rotation = Quaternion.Euler(0, 0, 180);
+    }
 }
