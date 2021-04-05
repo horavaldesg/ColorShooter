@@ -7,6 +7,7 @@ public class Orientation : MonoBehaviour
     public float sens = 50;
     public Transform camTransform;
     float camRotation = 0f;
+    float yRotation = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +19,13 @@ public class Orientation : MonoBehaviour
     {
         if (!moveCharacter.gravityChange)
         {
-            float mouseX = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
+            float mouseX = -Input.GetAxis("Mouse X") * sens * Time.deltaTime;
+            //transform.Rotate(new Vector3(transform.rotation.x, mouseX, transform.rotation.z));
+            yRotation += mouseX;
             float mouseY = Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
-            //camRotation += mouseY;
-            transform.Rotate(new Vector3(mouseY, mouseX, 0));
-
+            camRotation += mouseY;
+            camRotation = Mathf.Clamp(camRotation, -30, 30);
+            transform.localRotation = Quaternion.Euler(camRotation, yRotation, 0);
         }
         else
         {
