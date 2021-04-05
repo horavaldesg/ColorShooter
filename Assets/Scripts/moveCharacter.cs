@@ -89,9 +89,9 @@ public class moveCharacter : MonoBehaviour
         else
         {
 
-            float xSpeed = -Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
+            float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
             movement += transform.forward * xSpeed;
-            float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            float ySpeed = -Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
             movement += transform.right * ySpeed;
             
 
@@ -201,11 +201,11 @@ public class moveCharacter : MonoBehaviour
    
     public static void RotateBody(Transform body)
     {
-        body.transform.rotation = Quaternion.Euler(0, 0, 180);
+        body.transform.rotation = Quaternion.Euler(0, 180, 180);
     }
     public static void RotateBodyBack(Transform body)
     {
-        body.transform.rotation = Quaternion.Euler(0, 0, 0);
+        body.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 
 }
