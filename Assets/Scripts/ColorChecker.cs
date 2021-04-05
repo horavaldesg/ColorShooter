@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ColorChecker : MonoBehaviour
 {
+    public Transform body;
     // Start is called before the first frame update
     void Start()
     {
@@ -100,7 +101,7 @@ public class ColorChecker : MonoBehaviour
 
                 //GetComponentInParent<moveCharacter>().verticalSpeed = GetComponentInParent<moveCharacter>().jumpBoost;
                 moveCharacter.jump = true;
-                Debug.Log("Jump 1");
+                //Debug.Log("Jump 1");
                 moveCharacter.fast = false;
 
 
@@ -109,12 +110,21 @@ public class ColorChecker : MonoBehaviour
             //Gravity
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
             {
-                moveCharacter.gravityChange = true;
+                if (!moveCharacter.gravityChange)
+                {
+                    moveCharacter.gravityChange = true;
+                    moveCharacter.RotateBody(body);
+                }
+                else
+                {
+                    moveCharacter.gravityChange = false;
+                    moveCharacter.RotateBodyBack(body);
+                }
                 
                 //GetComponentInParent<moveCharacter>().verticalSpeed = 0;
                 moveCharacter.jump = false;
                 moveCharacter.fast = false;
-                Debug.Log("Yellow");
+                //Debug.Log("Yellow");
             }
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.black)
             {
