@@ -1035,9 +1035,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 697187124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b68cfb45d19748429e1133c25c8d5ae, type: 3}
+  m_Script: {fileID: 11500000, guid: fcd6e0d25cdf94bf9a706c38067b0953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magenta: 1
+  cyan: 1
+  yellow: 1
+  black: 0
   camTransform: {fileID: 1771648987}
   ammo: 100
   depletionAmmo: 0.01

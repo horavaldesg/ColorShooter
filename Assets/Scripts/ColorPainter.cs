@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class UVCopyScript : MonoBehaviour
+public class ColorPainter : MonoBehaviour
 {
+    public bool magenta;
+    public bool cyan;
+    public bool yellow;
+    public bool black;
+    
     public Transform camTransform;
     [SerializeField] float ammo;
     [SerializeField] float depletionAmmo;
@@ -14,48 +19,62 @@ public class UVCopyScript : MonoBehaviour
     Color color;
     [SerializeField] Image img;
     // Start is called before the first frame update
+
     void Start()
     {
+        
         color = Color.magenta;
         img.color = color;
         part.color = color;
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (magenta)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                color = Color.magenta;
+                part.color = color;
+                img.color = color;
+                //splatter.color = color;
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+            }
+        }
+        if (cyan)
         {
-            color = Color.magenta;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                color = Color.cyan;
+                part.color = color;
+                img.color = color;
+                //splatter.color = color;
 
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (yellow)
         {
-            color = Color.cyan;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
-
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                color = Color.yellow;
+                part.color = color;
+                img.color = color;
+                //splatter.color = color;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (black)
         {
-            color = Color.yellow;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                color = Color.black;
+                part.color = color;
+                img.color = color;
+                //splatter.color = color;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            color = Color.black;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
-        }
+        
         if (ammo > 0)
         {
             if (Input.GetMouseButton(0))
