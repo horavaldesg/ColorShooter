@@ -144,6 +144,10 @@ public class moveCharacter : MonoBehaviour
         movement += transform.up * verticalSpeed * Time.deltaTime;
 
         //Grounded
+        if (!grounded)
+        {
+            footSteps.Pause();
+        }
         if (!gravityChange)
         {
             if (Physics.CheckSphere(checkPos.position, 0.5f, groundMask) && verticalSpeed <= 0)
