@@ -2001,7 +2001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
-  player: {fileID: 0}
 --- !u!82 &929471931
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3854,6 +3853,11 @@ PrefabInstance:
       propertyPath: footSteps
       value: 
       objectReference: {fileID: 929471931}
+    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
+        type: 3}
+      propertyPath: speedBoost
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5775703919086956855, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
       propertyPath: m_RootOrder

@@ -33,7 +33,7 @@ public class moveCharacter : MonoBehaviour
     public static bool gravityChange = false;
 
 
-    public float boost = 3;
+    public float speedBoost = 3;
     public float speedPlayer;
 
     public float jumpBoost = 11;
@@ -66,7 +66,7 @@ public class moveCharacter : MonoBehaviour
 
         if (fast)
         {
-            speedPlayer = boost;
+            speedPlayer = speedBoost;
         }
         else
         {
