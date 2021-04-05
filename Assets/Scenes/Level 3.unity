@@ -1209,7 +1209,7 @@ GameObject:
   - component: {fileID: 225774262}
   - component: {fileID: 225774261}
   - component: {fileID: 225774265}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Respawn
   m_TagString: Respawn
   m_Icon: {fileID: 0}
@@ -12287,7 +12287,7 @@ GameObject:
   - component: {fileID: 1899668175}
   - component: {fileID: 1899668174}
   - component: {fileID: 1899668173}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Respawn (1)
   m_TagString: Respawn
   m_Icon: {fileID: 0}

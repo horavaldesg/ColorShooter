@@ -6000,7 +6000,7 @@ MonoBehaviour:
   bullet: {fileID: 3704720701700651520, guid: dcf672d39c9674f20b543111f3e0b74b, type: 3}
   bulletSpeed: 0
   barrel: {fileID: 1679927449250186784}
-  speedBoost: 3
+  speedBoost: 8
   speedPlayer: 0
   jumpBoost: 10
 --- !u!114 &5775703919086956852
@@ -11578,15 +11578,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81dbe855ab71dbe428823d4bb787de59, type: 3}
---- !u!4 &961769904838035040 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 81dbe855ab71dbe428823d4bb787de59,
-    type: 3}
-  m_PrefabInstance: {fileID: 779788887164002699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &437750820956019930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 81dbe855ab71dbe428823d4bb787de59,
+    type: 3}
+  m_PrefabInstance: {fileID: 779788887164002699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &961769904838035040 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 81dbe855ab71dbe428823d4bb787de59,
     type: 3}
   m_PrefabInstance: {fileID: 779788887164002699}
   m_PrefabAsset: {fileID: 0}
