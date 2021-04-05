@@ -5329,7 +5329,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 5775703919514475906}
-  player: {fileID: 5775703919086956855}
 --- !u!54 &7907521729355794327
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5509,7 +5508,7 @@ MonoBehaviour:
   bullet: {fileID: 3704720701700651520, guid: dcf672d39c9674f20b543111f3e0b74b, type: 3}
   bulletSpeed: 0
   barrel: {fileID: 1679927449250186784}
-  boost: 8
+  speedBoost: 3
   speedPlayer: 0
   jumpBoost: 10
 --- !u!114 &5775703919086956852
