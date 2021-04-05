@@ -21,6 +21,7 @@ public class GunAnimationController : MonoBehaviour
         {
             anim.SetBool("GunShoot", true);
             spraySound.Play();
+            spraySound.loop = true;
 
         }
 
@@ -28,6 +29,7 @@ public class GunAnimationController : MonoBehaviour
         {
             anim.SetBool("GunShoot", false);
             spraySound.Pause();
+            spraySound.loop = false;
         }
     }
 }

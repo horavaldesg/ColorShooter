@@ -21,9 +21,9 @@ public class Orientation : MonoBehaviour
         {
             float mouseX = -Input.GetAxis("Mouse X") * sens * Time.deltaTime;
             //transform.Rotate(new Vector3(transform.rotation.x, mouseX, transform.rotation.z));
-            yRotation += mouseX;
+            yRotation = camTransform.rotation.y;
             float mouseY = Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
-            camRotation += mouseY;
+            camRotation = camTransform.rotation.x;
             camRotation = Mathf.Clamp(camRotation, -30, 30);
             transform.localRotation = Quaternion.Euler(camRotation, yRotation, 0);
         }
