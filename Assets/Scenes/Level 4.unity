@@ -1499,11 +1499,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneSwitch
       objectReference: {fileID: 0}
-    - target: {fileID: 4222084222205628696, guid: 57841e702c0b448a5a5552b75c9eb215,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 4222084222205628698, guid: 57841e702c0b448a5a5552b75c9eb215,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
