@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class moveCharacter : MonoBehaviour
 {
-    //public GameObject body;
+    public GameObject body;
     public string scene;
     public GameObject interactButtonText;
 
@@ -81,18 +81,18 @@ public class moveCharacter : MonoBehaviour
         if (!gravityChange)
         {
            
-            float xSpeed = -Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
-            movement += transform.forward * xSpeed;
-            float ySpeed = -Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
-            movement += transform.right * ySpeed;
+            float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
+            movement += body.transform.forward * xSpeed;
+            float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            movement += body.transform.right * ySpeed;
         }
         else
         {
 
             float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
-            movement += transform.forward * xSpeed;
-            float ySpeed = -Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
-            movement += transform.right * ySpeed;
+            movement += body.transform.forward * xSpeed;
+            float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            movement += body.transform.right * ySpeed;
             
 
         }
@@ -201,7 +201,7 @@ public class moveCharacter : MonoBehaviour
    
     public static void RotateBody(Transform body)
     {
-        body.transform.rotation = Quaternion.Euler(0, 180, 180);
+        body.transform.rotation = Quaternion.Euler(body.transform.rotation.x, body.transform.rotation.y, 180);
     }
     public static void RotateBodyBack(Transform body)
     {
