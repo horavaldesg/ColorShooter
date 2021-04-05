@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class moveCharacter : MonoBehaviour
 {
+
+    public AudioSource footSteps;
     public GameObject body;
     public string scene;
     public GameObject interactButtonText;
@@ -75,7 +77,7 @@ public class moveCharacter : MonoBehaviour
         {
             jumpInitial = jumpSpeed;
         }
-
+        
             //movement
             Vector3 movement = Vector3.zero;
         if (!gravityChange)
@@ -85,6 +87,10 @@ public class moveCharacter : MonoBehaviour
             movement += body.transform.forward * xSpeed;
             float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
             movement += body.transform.right * ySpeed;
+            if (xSpeed != 0 || ySpeed != 0)
+            {
+                footSteps.Play();
+            }
         }
         else
         {
@@ -93,9 +99,13 @@ public class moveCharacter : MonoBehaviour
             movement += body.transform.forward * xSpeed;
             float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
             movement += body.transform.right * ySpeed;
-            
+            if (xSpeed != 0 || ySpeed != 0)
+            {
+                footSteps.Play();
+            }
 
         }
+       
         //Gravtity
         if (!gravityChange)
         {
