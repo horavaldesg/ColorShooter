@@ -81,16 +81,18 @@ public class ColorPainter : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(camTransform.transform.position, camTransform.forward, out hit))
                 {
+                    brush.tag = "Splatter";
+                    brush.layer = 10;
+                    if (hit.collider.tag == "Black" && hit.collider.tag != "Splatter" && hit.collider.tag != "Player" && hit.collider.tag != "Button")
+                    {
+                        hit.collider.GetComponent<Renderer>().material.color = color;
+                        landAudio.PlayOneShot(clip);
+                    }
                     if (color != Color.black)
                     {
-                        brush.tag = "Splatter";
-                        brush.layer = 10;
-                        if(hit.collider.tag == "Black")
-                        {
-                            hit.collider.GetComponent<Renderer>().material.color = color;
-                            landAudio.PlayOneShot(clip);
-                        }
-                        if (hit.collider.tag != "Splatter" && hit.collider.tag != "Player" && hit.collider.tag != "Button")
+                        
+                        
+                        if (hit.collider.tag != "Splatter" && hit.collider.tag != "Player" && hit.collider.tag != "Button" && hit.collider.tag != "Black")
                         {
                             ammo -= depletionAmmo;
                             if (hit.collider.gameObject.name == "XLeft")
