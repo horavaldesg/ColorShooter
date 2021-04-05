@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class moveCharacter : MonoBehaviour
 {
-    public Transform player;
 
     public AudioSource footSteps;
     public Animator anim;
@@ -48,7 +47,7 @@ public class moveCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RotateBodyBack(player);
+        
         cc = GetComponent<CharacterController>();
         speedPlayer = speed;
         jumpInitial = jumpSpeed;
