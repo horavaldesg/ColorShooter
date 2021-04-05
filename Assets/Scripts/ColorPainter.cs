@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class UVCopyScript : MonoBehaviour
+public class ColorPainter : MonoBehaviour
 {
+    public bool magenta;
+    public bool cyan;
+    public bool yellow;
+    public bool black;
+    public AudioSource landAudio;
     public Transform camTransform;
     [SerializeField] float ammo;
     [SerializeField] float depletionAmmo;
@@ -25,36 +30,47 @@ public class UVCopyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (magenta)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                color = Color.magenta;
+                part.color = color;
+                img.color = color;
+                //splatter.color = color;
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+            }
+        }
+        if (cyan)
         {
-            color = Color.magenta;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                color = Color.cyan;
+                part.color = color;
+                img.color = color;
+                //splatter.color = color;
 
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (yellow)
         {
-            color = Color.cyan;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
-
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                color = Color.yellow;
+                part.color = color;
+                img.color = color;
+                //splatter.color = color;
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (black)
         {
-            color = Color.yellow;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            color = Color.black;
-            part.color = color;
-            img.color = color;
-            //splatter.color = color;
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                color = Color.black;
+                part.color = color;
+                img.color = color;
+                //splatter.color = color;
+            }
         }
         if (ammo > 0)
         {
@@ -77,12 +93,14 @@ public class UVCopyScript : MonoBehaviour
 
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(90, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
+                                landAudio.Play();
 
                             }
                             else if (hit.collider.gameObject.name == "XRight")
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(-90, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
+                                landAudio.Play();
 
                                 //Debug.Log("X Right");
                             }
@@ -90,6 +108,7 @@ public class UVCopyScript : MonoBehaviour
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 90), transform);
                                 go.GetComponent<Renderer>().material.color = color;
+                                landAudio.Play();
 
                                 //Debug.Log("Z Left");
                             }
@@ -97,24 +116,28 @@ public class UVCopyScript : MonoBehaviour
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, -90), transform);
                                 go.GetComponent<Renderer>().material.color = color;
+                                landAudio.Play();
                                 //Debug.Log("Z Right");
                             }
                             else if (hit.collider.gameObject.name == "YTop")
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
+                                landAudio.Play();
                                 //Debug.Log("Y Top");
                             }
                             else if (hit.collider.gameObject.name == "YBottom")
                             {
                                 var go = Instantiate(brush, hit.point - Vector3.up * 0.1f, Quaternion.Euler(180, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
+                                landAudio.Play();
                                 //Debug.Log("Y Bottom");
                             }
                             else
                             {
                                 var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, Quaternion.Euler(0, 0, 0), transform);
                                 go.GetComponent<Renderer>().material.color = color;
+                                landAudio.Play();
 
                             }
                         }
@@ -124,6 +147,7 @@ public class UVCopyScript : MonoBehaviour
                         if (hit.collider.tag == "Splatter" && hit.collider.tag != "Player" && hit.collider.tag != "Button" && hit.collider.gameObject.layer != 8)
                         {
                             hit.collider.GetComponent<Renderer>().material.color = color;
+                            landAudio.Play();
                         }
                     }
                     //go.transform.localScale = Vector3.one * BrushSize;
