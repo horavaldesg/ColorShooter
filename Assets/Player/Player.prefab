@@ -5976,8 +5976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91caccb8e69c4660a77c28c495636fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5775703919086956855}
   footSteps: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7869184706770732155}
   body: {fileID: 5775703919514475966}
   scene: 
   interactButtonText: {fileID: 3998524169690003542}
