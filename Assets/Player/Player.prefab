@@ -5389,6 +5389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91caccb8e69c4660a77c28c495636fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 5775703919514475966}
   scene: 
   interactButtonText: {fileID: 3998524169690003542}
   cc: {fileID: 5775703919086956853}
