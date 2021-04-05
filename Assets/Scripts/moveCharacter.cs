@@ -49,6 +49,9 @@ public class moveCharacter : MonoBehaviour
     void Start()
     {
         RotateBodyBack(player);
+        fast = false;
+        jump = false;
+        gravityChange = false;
         cc = GetComponent<CharacterController>();
         speedPlayer = speed;
         jumpInitial = jumpSpeed;
