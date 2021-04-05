@@ -7,6 +7,7 @@ public class moveCharacter : MonoBehaviour
 {
 
     public AudioSource footSteps;
+    public Animator anim;
     public GameObject body;
     public string scene;
     public GameObject interactButtonText;
@@ -85,12 +86,30 @@ public class moveCharacter : MonoBehaviour
            
             float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
             movement += body.transform.forward * xSpeed;
-            float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
-            movement += body.transform.right * ySpeed;
-            if (xSpeed != 0 || ySpeed != 0)
+            float zSpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            movement += body.transform.right * zSpeed;
+
+            float aSpeed = xSpeed + zSpeed;
+            float tSpeed = movement.magnitude * 10f;
+            anim.SetFloat("MoveSpeed", tSpeed);
+            if (aSpeed > 0f)
+            {
+                footSteps.Pause();
+            }
+            if (aSpeed < 0.1f)
             {
                 footSteps.Play();
             }
+
+            //Debug.Log("xSpeed = " + xSpeed);
+            //Debug.Log("zSpeed = " + zSpeed);
+            //Debug.Log("tSpeed = " + tSpeed);
+
+
+            //if (xSpeed != 0 || ySpeed != 0)
+            //{
+            //    footSteps.Play();
+            //}
         }
         else
         {
