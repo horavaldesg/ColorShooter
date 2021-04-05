@@ -92,11 +92,11 @@ public class moveCharacter : MonoBehaviour
             float aSpeed = xSpeed + zSpeed;
             float tSpeed = movement.magnitude * 10f;
             anim.SetFloat("MoveSpeed", tSpeed);
-            if (aSpeed > 0f)
+            if (Mathf.Abs(aSpeed) > 0f)
             {
                 footSteps.Pause();
             }
-            if (aSpeed < 0.1f)
+            if (Mathf.Abs(aSpeed) < 0.1f)
             {
                 footSteps.Play();
             }
