@@ -102,8 +102,8 @@ public class moveCharacter : MonoBehaviour
             }
 
             //Debug.Log("xSpeed = " + xSpeed);
-            //Debug.Log("zSpeed = " + zSpeed);
-            //Debug.Log("tSpeed = " + tSpeed);
+            Debug.Log("aSpeed = " + aSpeed);
+            Debug.Log("tSpeed = " + tSpeed);
 
 
             //if (xSpeed != 0 || ySpeed != 0)
@@ -116,12 +116,21 @@ public class moveCharacter : MonoBehaviour
 
             float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
             movement += body.transform.forward * xSpeed;
-            float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
-            movement += body.transform.right * ySpeed;
-            if (xSpeed != 0 || ySpeed != 0)
+            float zSpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            movement += body.transform.right * zSpeed;
+
+            float aSpeed = xSpeed + zSpeed;
+            float tSpeed = movement.magnitude * 10f;
+            anim.SetFloat("MoveSpeed", tSpeed);
+            if (Mathf.Abs(aSpeed) > 0f)
+            {
+                footSteps.Pause();
+            }
+            if (Mathf.Abs(aSpeed) < 0.1f)
             {
                 footSteps.Play();
             }
+
 
         }
        

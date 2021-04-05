@@ -76,7 +76,7 @@ public class ColorChecker : MonoBehaviour
         }
         //if (other.CompareTag("Player"))
         //{
-        Debug.Log("Player");
+        //Debug.Log("Player");
         if (other.gameObject.GetComponent<Renderer>().material.color != null &&
             other.gameObject.name != "XLeft" &&
             other.gameObject.name != "XRight" &&
