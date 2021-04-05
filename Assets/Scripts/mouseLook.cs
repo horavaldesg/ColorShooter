@@ -18,13 +18,13 @@ public class mouseLook : MonoBehaviour
     {
         //Rotation
         float mouseX = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
-        transform.Rotate(new Vector3(0, mouseX, 0));
+        transform.Rotate(new Vector3(transform.rotation.x, mouseX, transform.rotation.z));
 
         float mouseY = -Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
         //camTransform.Rotate(new Vector3(mouseY, 0, 0));
         camRotation += mouseY;
         camRotation = Mathf.Clamp(camRotation, -80f, 90f);
-        camTransform.localRotation = Quaternion.Euler(new Vector3(camRotation,0,0));
+        camTransform.localRotation = Quaternion.Euler(new Vector3(camRotation,transform.rotation.y,transform.rotation.z));
            
 
     }

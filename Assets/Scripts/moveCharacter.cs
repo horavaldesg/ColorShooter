@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class moveCharacter : MonoBehaviour
 {
+    public GameObject body;
     public string scene;
     public GameObject interactButtonText;
 
@@ -26,7 +27,7 @@ public class moveCharacter : MonoBehaviour
     public Transform barrel;
     public static bool fast = false;
     public static bool jump = false;
-    public bool gravityChange = false;
+    public static bool gravityChange = false;
 
 
     public float boost = 3;
@@ -87,6 +88,7 @@ public class moveCharacter : MonoBehaviour
         }
         else
         {
+
             float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
             movement += transform.forward * xSpeed;
             float ySpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
@@ -103,27 +105,55 @@ public class moveCharacter : MonoBehaviour
         else if (gravityChange)
         {
             verticalSpeed -= Gravity * Time.deltaTime;
+            body.transform.rotation = Quaternion.Euler(body.transform.rotation.x, body.transform.rotation.y, 180);
+            //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 180);
         }
         
 
         movement += transform.up * verticalSpeed * Time.deltaTime;
 
-       //Grounded
-        if (Physics.CheckSphere(checkPos.position,0.5f, groundMask) && verticalSpeed <= 0)
+        //Grounded
+        if (!gravityChange)
         {
-            grounded = true;
-            verticalSpeed = 0;
+            if (Physics.CheckSphere(checkPos.position, 0.5f, groundMask) && verticalSpeed <= 0)
+            {
+                grounded = true;
+                verticalSpeed = 0;
+            }
+            else
+            {
+                grounded = false;
+            }
         }
         else
         {
-            grounded = false;
-        }
+            if (Physics.CheckSphere(checkPos.position, 0.5f, groundMask) && verticalSpeed >= 0)
+            {
+                grounded = true;
+                verticalSpeed = 0;
+            }
+            else
+            {
+                grounded = false;
+            }
 
+        }
         //Jump
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (!gravityChange)
         {
-            verticalSpeed = jumpInitial;
-            jump = false;
+            if (Input.GetKeyDown(KeyCode.Space) && grounded)
+            {
+                verticalSpeed = jumpInitial;
+                jump = false;
+            }
+        }
+        else if (gravityChange)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && grounded)
+            {
+                verticalSpeed = -jumpInitial;
+                jump = false;
+            }
         }
         RaycastHit hit;
         if (Physics.Raycast(camTransform.position, camTransform.forward, out hit, 6))

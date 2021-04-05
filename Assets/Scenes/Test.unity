@@ -386,6 +386,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365397592}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &436468896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5775703919514475966, guid: 17948dbf6178842d2ac9d4e138515bd5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771648986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &475747409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3430,7 +3436,7 @@ PrefabInstance:
     - target: {fileID: 673624166423902539, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 784371846287624580, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
@@ -3554,6 +3560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 436468896}
+    - target: {fileID: 5775703919086956854, guid: 17948dbf6178842d2ac9d4e138515bd5,
+        type: 3}
       propertyPath: scene
       value: Start Scene
       objectReference: {fileID: 0}
@@ -3617,10 +3628,15 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5775703919514475906, guid: 17948dbf6178842d2ac9d4e138515bd5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5775703919514475964, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5775703919514475965, guid: 17948dbf6178842d2ac9d4e138515bd5,
         type: 3}

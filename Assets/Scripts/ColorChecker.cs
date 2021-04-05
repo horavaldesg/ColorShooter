@@ -108,9 +108,9 @@ public class ColorChecker : MonoBehaviour
             }
             //Gravity
              if (other.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
-            { 
-                GetComponentInParent<moveCharacter>().gravityChange = true;
-                GetComponentInParent<Transform>().rotation =  Quaternion.Euler(90, transform.rotation.y, transform.rotation.z);
+            {
+                moveCharacter.gravityChange = true;
+                
                 //GetComponentInParent<moveCharacter>().verticalSpeed = 0;
                 moveCharacter.jump = false;
                 moveCharacter.fast = false;
