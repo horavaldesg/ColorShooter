@@ -59,10 +59,7 @@ public class moveCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.position.y < 0)
-        {
-            gameObject.transform.position = initialPos;
-        }
+
 
         if (fast)
         {
