@@ -71,10 +71,7 @@ public class ColorChecker : MonoBehaviour
     //}
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Respawn"))
-        {
-            SceneManager.LoadScene(scene);
-        }
+       
         
         if (other.name == "YTop")
         {

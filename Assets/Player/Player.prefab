@@ -5691,6 +5691,7 @@ GameObject:
   - component: {fileID: 2228368190232353865}
   - component: {fileID: 371325371731808454}
   - component: {fileID: 7907521729355794327}
+  - component: {fileID: 174801093547354106}
   m_Layer: 9
   m_Name: Color Checker
   m_TagString: Player
@@ -5762,6 +5763,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &174801093547354106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414535661686229633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2806b62fa3fbf73428a7662871167f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentPos: {fileID: 5775703919086956855}
 --- !u!1 &5417829521903754569
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,7 +6681,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.45
+  m_fontSize: 51.25
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1

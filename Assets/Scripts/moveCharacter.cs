@@ -106,8 +106,8 @@ public class moveCharacter : MonoBehaviour
             }
 
             //Debug.Log("xSpeed = " + xSpeed);
-            Debug.Log("aSpeed = " + aSpeed);
-            Debug.Log("tSpeed = " + tSpeed);
+            //Debug.Log("aSpeed = " + aSpeed);
+           // Debug.Log("tSpeed = " + tSpeed);
 
 
             //if (xSpeed != 0 || ySpeed != 0)
