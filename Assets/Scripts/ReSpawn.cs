@@ -28,7 +28,8 @@ public class ReSpawn : MonoBehaviour
     {
         if(other.tag == "Respawn")
         {
-            Debug.Log("Respawn");
+            //Debug.Log("Respawn");
+
             cc.enabled = false;
             parentPos.position = new Vector3(0, 0, 0);
             cc.enabled = true;
