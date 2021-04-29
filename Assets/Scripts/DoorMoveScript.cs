@@ -8,6 +8,7 @@ public class DoorMoveScript : MonoBehaviour
     [SerializeField]AudioClip clip;
     AudioSource doorSound;
     bool playSound;
+    float i = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,41 +22,58 @@ public class DoorMoveScript : MonoBehaviour
     {
        if (buttonPushed == true)
         {
-            
-            DoorMove();        
+           
+            DoorMove();
+            if (i == 0)
+            {
+                playSound = true;
+            }
+            i += Time.deltaTime;
+
         }
 
-        if (buttonPushed == false)
-        {
-            if (transform.position.y <= 2.37f)
-            {
-                transform.position += new Vector3(0, +0.01f, 0);
-            }
+        //if (buttonPushed == false)
+        //{
+        //    if (transform.position.y <= 2.37f)
+        //    {
+        //        transform.position += new Vector3(0, +0.01f, 0);
+        //    }
 
-            if (transform.position.y >= 2.37f)
-            {
-                transform.position += new Vector3(0, 0, 0);
-            }
-        }
+        //    if (transform.position.y >= 2.37f)
+        //    {
+        //        transform.position += new Vector3(0, 0, 0);
+        //    }
+        //}
     }
 
     void DoorMove()
     {
-        StartCoroutine(PlaySound());
+        if (playSound)
+        {
+            if (i > 0)
+            {
+                playSound = false;
+            }
+            StartCoroutine(PlaySound());
+        }
+        
         if (transform.position.y >= -2.52f)
         {
             transform.position += new Vector3(0, -0.01f, 0);
         }
-        
-        if(transform.position.y <= -2.52f)
+
+        if (transform.position.y <= -2.52f)
         {
             transform.position += new Vector3(0, 0, 0);
         }
+
     }
    
     IEnumerator PlaySound()
     {
+        
         doorSound.PlayOneShot(clip);
+       
         yield return new WaitForSeconds(clip.length);
     }
 
