@@ -11,7 +11,8 @@ public class NewSceneAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name != "Start Scene")
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name != "Start Scene" && SceneManager.GetActiveScene().name != "Level 1")
         {
             StartCoroutine(playAnim());
            
