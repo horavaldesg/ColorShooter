@@ -6,10 +6,12 @@ public class DoorMoveScript : MonoBehaviour
 {
     public static bool buttonPushed;
 
+    AudioSource doorSound;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        doorSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -17,7 +19,8 @@ public class DoorMoveScript : MonoBehaviour
     {
        if (buttonPushed == true)
         {
-            DoorMove();
+            doorSound.Play();
+            DoorMove();        
         }
 
         if (buttonPushed == false)
