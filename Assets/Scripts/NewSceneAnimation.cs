@@ -33,7 +33,7 @@ public class NewSceneAnimation : MonoBehaviour
         
         animObj.GetComponent<Animator>().Play("DeathTransition");
 
-        yield return new WaitForSeconds(1.63f);
+        yield return new WaitForSeconds(1.5f);
         animObj.GetComponent<Animator>().enabled = false;
 
         foreach (GameObject children in children)

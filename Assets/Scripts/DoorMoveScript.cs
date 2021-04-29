@@ -5,12 +5,14 @@ using UnityEngine;
 public class DoorMoveScript : MonoBehaviour
 {
     public static bool buttonPushed;
-
+    [SerializeField]AudioClip clip;
     AudioSource doorSound;
-
+    bool playSound;
     // Start is called before the first frame update
     void Start()
     {
+        playSound = false;
+        buttonPushed = false;
         doorSound = GetComponent<AudioSource>();
     }
 
@@ -19,7 +21,7 @@ public class DoorMoveScript : MonoBehaviour
     {
        if (buttonPushed == true)
         {
-            doorSound.Play();
+            
             DoorMove();        
         }
 
@@ -39,6 +41,7 @@ public class DoorMoveScript : MonoBehaviour
 
     void DoorMove()
     {
+        StartCoroutine(PlaySound());
         if (transform.position.y >= -2.52f)
         {
             transform.position += new Vector3(0, -0.01f, 0);
@@ -48,6 +51,12 @@ public class DoorMoveScript : MonoBehaviour
         {
             transform.position += new Vector3(0, 0, 0);
         }
+    }
+   
+    IEnumerator PlaySound()
+    {
+        doorSound.PlayOneShot(clip);
+        yield return new WaitForSeconds(clip.length);
     }
 
 }
