@@ -54,11 +54,12 @@ public class ReSpawn : MonoBehaviour
             children.GetComponent<Image>().color = Color.black;
         }
         respawnObj.GetComponent<Animator>().Play("DeathTransition");
-        yield return new WaitForSeconds(1.5f);
-        respawnObj.GetComponent<Animator>().enabled = false;
+        yield return new WaitForSeconds(respawnObj.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length * 2);
+        
         foreach (GameObject children in respawnChildren)
         {
             children.SetActive(false);
         }
+        respawnObj.GetComponent<Animator>().enabled = false;
     }
 }
