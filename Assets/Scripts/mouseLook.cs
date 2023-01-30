@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class mouseLook : MonoBehaviour
 {
-    public float sens = 50;
+    public FloatVal sens;
     public Transform camTransform;
     float camRotation = 0f;
 
@@ -19,25 +19,27 @@ public class mouseLook : MonoBehaviour
         
         if (!moveCharacter.gravityChange)
         {
-            var mouseX = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
+            var mouseX = Input.GetAxis("Mouse X") * sens.val * Time.deltaTime * 10;
             transform.Rotate(new Vector3(transform.rotation.x, mouseX, transform.rotation.z));
-            var mouseY = -Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
+            var mouseY = -Input.GetAxis("Mouse Y") * sens.val * Time.deltaTime * 10;
             camRotation += mouseY;
             camRotation = Mathf.Clamp(camRotation, -80f, 90f);
             camTransform.localRotation = Quaternion.Euler(new Vector3(camRotation, transform.rotation.y, transform.rotation.z));
         }
         else
         {
-            var mouseX = -Input.GetAxis("Mouse X") * sens * Time.deltaTime;
+            var mouseX = -Input.GetAxis("Mouse X") * sens.val * Time.deltaTime * 10;
             transform.Rotate(new Vector3(transform.rotation.x, mouseX, transform.rotation.z));
-            var mouseY = -Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
+            var mouseY = -Input.GetAxis("Mouse Y") * sens.val * Time.deltaTime * 10;
             camRotation += mouseY;
             camRotation = Mathf.Clamp(camRotation, -80f, 90f);
             camTransform.localRotation = Quaternion.Euler(new Vector3(camRotation, transform.rotation.y, transform.rotation.z));
         }
         //camTransform.Rotate(new Vector3(mouseY, 0, 0));
-        
-           
+    }
 
+    public string GetSens()
+    {
+        return sens.ToString();
     }
 }

@@ -17,7 +17,7 @@ public class ColorPainter : MonoBehaviour
     [SerializeField] Material splatter;
     [SerializeField] Material part;
     public float BrushSize = 0.1f;
-    Color color;
+    private Color color;
     private Renderer _goRenderer;
     
     [SerializeField] Image img;
@@ -32,6 +32,7 @@ public class ColorPainter : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (magenta)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -64,6 +65,7 @@ public class ColorPainter : MonoBehaviour
                 //splatter.color = color;
             }
         }
+        */
         if (black)
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -143,6 +145,13 @@ public class ColorPainter : MonoBehaviour
         go.TryGetComponent(out _goRenderer);
         _goRenderer.material.color = color;
         landAudio.PlayOneShot(clip);
+    }
+
+    public void ChangeColor(Color color)
+    {
+        this.color = color;
+        part.color = color;
+        img.color = color;
     }
 }
     

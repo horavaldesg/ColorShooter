@@ -11,67 +11,8 @@ public class ColorChecker : MonoBehaviour
     {
         scene = SceneManager.GetActiveScene().name;
     }
-
-    void Update()
-    {
-        
-    }
-    //private void OnControllerColliderHit(ControllerColliderHit hit)
-    //{
-
-    //    if (hit.collider.gameObject.GetComponent<Renderer>().material.color != null &&
-    //        hit.collider.gameObject.name != "XLeft" &&
-    //        hit.collider.gameObject.name != "XRight" &&
-    //        hit.collider.gameObject.name != "ZLeft" &&
-    //        hit.collider.gameObject.name != "ZRight" &&
-    //        hit.collider.gameObject.name != "YTop" &&
-    //        hit.collider.gameObject.name != "YBottom")
-    //        Debug.Log(hit.collider.name);
-    //    {
-    //        if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.magenta)
-    //        {
-    //            moveCharacter.fast = true;
-    //            moveCharacter.jump = false;
-    //            moveCharacter.gravityChange = false;
-
-    //            Debug.Log("Magenta");
-    //        }
-    //        else if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.cyan)
-    //        {
-    //            moveCharacter.jump = true;
-    //            moveCharacter.fast = false;
-    //            moveCharacter.gravityChange = false;
-
-
-    //            Debug.Log("Cyan");
-    //        }
-    //        else if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
-    //        {
-    //            //moveCharacter.gravityChange = true;
-    //            moveCharacter.jump = false;
-    //            moveCharacter.fast = false;
-    //            Debug.Log("Yellow");
-    //        }
-    //        else if (hit.collider.gameObject.GetComponent<Renderer>().material.color == Color.black)
-    //        {
-    //            Debug.Log("Black");
-    //        }
-    //        else
-    //        {
-    //            moveCharacter.jump = false;
-    //            moveCharacter.fast = false;
-    //            moveCharacter.gravityChange = false;
-
-    //        }
-    //        Debug.Log(hit.gameObject.GetComponent<Renderer>().material.color);
-
-    //    }
-
-    //}
     private void OnTriggerEnter(Collider other)
     {
-       
-        
         if (other.name == "YTop")
         {
             GetComponentInParent<moveCharacter>().grounded = true;
@@ -101,8 +42,9 @@ public class ColorChecker : MonoBehaviour
             {
                 moveCharacter.fast = false;
             }
+
             //Jump
-             if (other.gameObject.GetComponent<Renderer>().material.color == Color.cyan)
+            if (other.gameObject.GetComponent<Renderer>().material.color == Color.cyan)
             {
 
                 //GetComponentInParent<moveCharacter>().verticalSpeed = GetComponentInParent<moveCharacter>().jumpBoost;
@@ -113,8 +55,9 @@ public class ColorChecker : MonoBehaviour
 
                 //Debug.Log("Cyan");
             }
+
             //Gravity
-             if (other.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
+            if (other.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
             {
                 if (!moveCharacter.gravityChange)
                 {
@@ -126,13 +69,14 @@ public class ColorChecker : MonoBehaviour
                     moveCharacter.gravityChange = false;
                     moveCharacter.RotateBodyBack(body);
                 }
-                
+
                 //GetComponentInParent<moveCharacter>().verticalSpeed = 0;
                 moveCharacter.jump = false;
                 moveCharacter.fast = false;
                 //Debug.Log("Yellow");
             }
-             if (other.gameObject.GetComponent<Renderer>().material.color == Color.black)
+
+            if (other.gameObject.GetComponent<Renderer>().material.color == Color.black)
             {
                 //Debug.Log("Black");
             }
@@ -145,7 +89,7 @@ public class ColorChecker : MonoBehaviour
             //Debug.Log(other.gameObject.GetComponent<Renderer>().material.color);
 
         }
-        
+
         //}
     }
     private void OnTriggerExit(Collider other)
