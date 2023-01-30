@@ -6,6 +6,7 @@ using UnityEngine;
 public class OptionsManager : MonoBehaviour
 {
   [SerializeField] private GameObject optionsMenu;
+  [SerializeField] private mouseLook m_MouseLook;
 
   private void Start()
   {
@@ -17,6 +18,8 @@ public class OptionsManager : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.Escape))
     {
       optionsMenu.SetActive(!optionsMenu.activeSelf);
+      Time.timeScale = optionsMenu.activeSelf ? 0 : 1;
+      Cursor.lockState = optionsMenu.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
     }
   }
 }

@@ -7,15 +7,13 @@ public class GunAnimationController : MonoBehaviour
     Animator anim;
     AudioSource spraySound;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         anim = GetComponent<Animator>();
         spraySound = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
