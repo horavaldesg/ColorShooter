@@ -45,9 +45,9 @@ public class moveCharacter : MonoBehaviour
 
     string currentScene;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        gameObject.layer = 2;
         RotateBodyBack(player);
         fast = false;
         jump = false;
@@ -60,46 +60,31 @@ public class moveCharacter : MonoBehaviour
         //Debug.Log(initialPos);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
+        speedPlayer = fast ? speedBoost : speed;
+        //Debug.Log("Jump");
+        jumpInitial = jump ? jumpBoost : jumpSpeed;
 
-        if (fast)
-        {
-            speedPlayer = speedBoost;
-        }
-        else
-        {
-            speedPlayer = speed;
-        }
-        if (jump)
-        {
-            //Debug.Log("Jump");
-            jumpInitial = jumpBoost;
-        }
-        else
-        {
-            jumpInitial = jumpSpeed;
-        }
-        
-            //movement
-            Vector3 movement = Vector3.zero;
+        //movement
+        var movement = Vector3.zero;
         if (!gravityChange)
         {
-           
-            float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
+
+            var xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
             movement += body.transform.forward * xSpeed;
-            float zSpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            var zSpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
             movement += body.transform.right * zSpeed;
 
-            float aSpeed = xSpeed + zSpeed;
-            float tSpeed = movement.magnitude * 10f;
+            var aSpeed = xSpeed + zSpeed;
+            var tSpeed = movement.magnitude * 10f;
             anim.SetFloat("MoveSpeed", tSpeed);
             if (Mathf.Abs(aSpeed) > 0f)
             {
                 footSteps.Pause();
             }
+
             if (Mathf.Abs(aSpeed) < 0.1f)
             {
                 footSteps.Play();
@@ -107,7 +92,7 @@ public class moveCharacter : MonoBehaviour
 
             //Debug.Log("xSpeed = " + xSpeed);
             //Debug.Log("aSpeed = " + aSpeed);
-           // Debug.Log("tSpeed = " + tSpeed);
+            // Debug.Log("tSpeed = " + tSpeed);
 
 
             //if (xSpeed != 0 || ySpeed != 0)
@@ -118,18 +103,19 @@ public class moveCharacter : MonoBehaviour
         else
         {
 
-            float xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
+            var xSpeed = Input.GetAxis("Vertical") * speedPlayer * Time.deltaTime;
             movement += body.transform.forward * xSpeed;
-            float zSpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
+            var zSpeed = Input.GetAxis("Horizontal") * speedPlayer * Time.deltaTime;
             movement += body.transform.right * zSpeed;
 
-            float aSpeed = xSpeed + zSpeed;
-            float tSpeed = movement.magnitude * 10f;
+            var aSpeed = xSpeed + zSpeed;
+            var tSpeed = movement.magnitude * 10f;
             anim.SetFloat("MoveSpeed", tSpeed);
             if (Mathf.Abs(aSpeed) > 0f)
             {
                 footSteps.Pause();
             }
+
             if (Mathf.Abs(aSpeed) < 0.1f)
             {
                 footSteps.Play();
@@ -137,8 +123,8 @@ public class moveCharacter : MonoBehaviour
 
 
         }
-       
-        //Gravtity
+
+        //Gravity
         if (!gravityChange)
         {
             verticalSpeed += Gravity * Time.deltaTime;
@@ -147,20 +133,21 @@ public class moveCharacter : MonoBehaviour
         else if (gravityChange)
         {
             verticalSpeed -= Gravity * Time.deltaTime;
-           
 
-            
+
+
             //transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 180);
         }
-        
 
-        movement += transform.up * verticalSpeed * Time.deltaTime;
+
+        movement += transform.up * (verticalSpeed * Time.deltaTime);
 
         //Grounded
         if (!grounded)
         {
             footSteps.Pause();
         }
+
         if (!gravityChange)
         {
             if (Physics.CheckSphere(checkPos.position, 0.5f, groundMask) && verticalSpeed <= 0)
@@ -186,6 +173,7 @@ public class moveCharacter : MonoBehaviour
             }
 
         }
+
         //Jump
         if (!gravityChange)
         {
@@ -203,8 +191,8 @@ public class moveCharacter : MonoBehaviour
                 jump = false;
             }
         }
-        RaycastHit hit;
-        if (Physics.Raycast(camTransform.position, camTransform.forward, out hit, 6))
+
+        if (Physics.Raycast(camTransform.position, camTransform.forward, out var hit, 6))
         {
             if (hit.collider.CompareTag("Button"))
             {
@@ -215,7 +203,7 @@ public class moveCharacter : MonoBehaviour
                     interactButtonText.SetActive(false);
                     DoorMoveScript.buttonPushed = true;
                 }
-               
+
 
 
             }
@@ -224,30 +212,33 @@ public class moveCharacter : MonoBehaviour
                 interactButtonText.SetActive(false);
                 //DoorMoveScript.buttonPushed = false;
             }
+
             if (hit.collider.CompareTag("SceneSwitch"))
             {
                 interactButtonText.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    SceneManager.LoadScene(scene); 
+                    SceneManager.LoadScene(scene);
                 }
             }
-     
+
         }
         else
-        interactButtonText.SetActive(false);
+            interactButtonText.SetActive(false);
 
 
 
         cc.Move(movement);
 
-        
+
     }
-    
-   
+
+
     public static void RotateBody(Transform body)
     {
-        body.transform.rotation = Quaternion.Euler(body.transform.rotation.x, body.transform.rotation.y, 180);
+        var rotation = body.transform.rotation;
+        rotation = Quaternion.Euler(rotation.x, rotation.y, 180);
+        body.transform.rotation = rotation;
     }
     public static void RotateBodyBack(Transform body)
     {

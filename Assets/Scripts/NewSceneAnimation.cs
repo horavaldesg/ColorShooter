@@ -8,8 +8,8 @@ public class NewSceneAnimation : MonoBehaviour
     GameObject animObj;
     GameObject[] children;
     Color[] colors = new Color[3];
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         colors[0] = Color.yellow;
         colors[1] = Color.cyan;
@@ -21,17 +21,17 @@ public class NewSceneAnimation : MonoBehaviour
            
         }
     }
-    IEnumerator playAnim()
+    private IEnumerator playAnim()
     {
         animObj = GameObject.FindGameObjectWithTag("Die");
         children = GameObject.FindGameObjectsWithTag("DieSplatter");
 
         animObj.GetComponent<Animator>().Play("DeathTransition");
         animObj.GetComponent<Animator>().enabled = true;
-        for (int i = 0; i < children.Length; i++)
+        foreach (var t in children)
         {
-            int r = Random.Range(0, colors.Length);
-            children[i].GetComponent<Image>().color = Color.red;
+            var r = Random.Range(0, colors.Length);
+            t.GetComponent<Image>().color = Color.red;
         }
         
         
@@ -39,7 +39,7 @@ public class NewSceneAnimation : MonoBehaviour
         yield return new WaitForSeconds(animObj.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
 
 
-        foreach (GameObject children in children)
+        foreach (var children in children)
         {
             children.SetActive(false);
         }

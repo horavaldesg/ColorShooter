@@ -12,14 +12,12 @@ public class ColorFlux : MonoBehaviour
     float sat;
     float bri;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         mr = GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Color.RGBToHSV(mr.material.color, out hue, out sat, out bri);
         hue += rainbowSpeed / 10000;

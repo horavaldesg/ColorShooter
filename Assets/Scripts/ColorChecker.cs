@@ -6,13 +6,12 @@ public class ColorChecker : MonoBehaviour
 {
     public Transform body;
     string scene;
-    // Start is called before the first frame update
-    void Start()
+    
+    private void Start()
     {
         scene = SceneManager.GetActiveScene().name;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -80,7 +79,7 @@ public class ColorChecker : MonoBehaviour
         //if (other.CompareTag("Player"))
         //{
         //Debug.Log("Player");
-        if (other.gameObject.GetComponent<Renderer>().material.color != null &&
+        if (other.gameObject.GetComponent<Renderer>() != null &&
             other.gameObject.name != "XLeft" &&
             other.gameObject.name != "XRight" &&
             other.gameObject.name != "ZLeft" &&
