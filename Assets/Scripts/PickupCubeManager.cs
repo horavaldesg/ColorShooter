@@ -7,7 +7,7 @@ public class PickupCubeManager : MonoBehaviour
 {
     public enum colorChoice {Magenta, Cyan, Yellow};
     [Header("Change Color Pickup to Desired Color, Script Will take care of the rest")]
-    public colorChoice ColorPickup;
+    public ColorType.colorChoice ColorPickup;
     private MeshRenderer meshRenderer;
     private void Awake()
     {
@@ -15,13 +15,13 @@ public class PickupCubeManager : MonoBehaviour
         if(!meshRenderer)return;
         switch (ColorPickup)
         {
-            case colorChoice.Magenta:
+            case ColorType.colorChoice.Magenta:
                 meshRenderer.material.color = Color.magenta;
                 break;
-            case colorChoice.Cyan:
+            case ColorType.colorChoice.Cyan:
                 meshRenderer.material.color = Color.cyan;
                 break;
-            case colorChoice.Yellow:
+            case ColorType.colorChoice.Yellow:
                 meshRenderer.material.color = Color.yellow;
                 break;
             default:

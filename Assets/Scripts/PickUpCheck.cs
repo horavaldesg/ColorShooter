@@ -13,18 +13,22 @@ public class PickUpCheck : MonoBehaviour
   {
       if (Physics.Raycast(camTransform.position, camTransform.forward, out var hit, 6))
       {
-          pickupText.SetActive(true);
-          if (Input.GetAxis("Interact") != 1) return;
-          if (!hit.collider.CompareTag("Pickup"))
-              return;
-          hit.collider.TryGetComponent(out PickupCubeManager cubeManager);
-          if (!cubeManager) return;
-          colorPainter.ChangeColor(cubeManager.CurrentColor());
-      }
-      else
-      {
-          pickupText.SetActive(false);
+          
+          if (hit.collider.CompareTag("Pickup"))
+          {
+              pickupText.SetActive(true);
+              if (Input.GetAxis("Interact") != 1) return;
+              hit.collider.TryGetComponent(out PickupCubeManager cubeManager);
+              if (!cubeManager) return;
+              colorPainter.ChangeColor(cubeManager.CurrentColor());
+             
+          }
+          else
+          {
+              pickupText.SetActive(false);
 
+          }
       }
+      
   }
 }

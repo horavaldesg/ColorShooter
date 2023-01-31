@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
 public class ColorPainter : MonoBehaviour
@@ -66,15 +67,26 @@ public class ColorPainter : MonoBehaviour
             }
         }
         */
-        if (black)
+        if (Physics.Raycast(camTransform.transform.position, camTransform.forward, out var splatterHit))
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            splatterHit.collider.transform.TryGetComponent(out ColorChoice colorChoice);
+            if(colorChoice)
             {
-                color = Color.black;
-                part.color = color;
-                img.color = color;
-                //splatter.color = color;
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    SuckPaint(splatterHit.collider.gameObject, colorChoice.CurrentColor());
+                }
             }
+            /*color = Color.black;
+            part.color = color;
+            img.color = color;*/
+
+        }
+            //splatter.color = color;
+
+            if (black)
+        {
+            
         }
 
         if (!(ammo > 0)) return;
@@ -147,6 +159,12 @@ public class ColorPainter : MonoBehaviour
         landAudio.PlayOneShot(clip);
     }
 
+    private void SuckPaint(GameObject splatterObj, Color color)
+    {
+        ChangeColor(color);
+        Destroy(splatterObj.gameObject, 5);
+    }
+    
     public void ChangeColor(Color color)
     {
         this.color = color;
