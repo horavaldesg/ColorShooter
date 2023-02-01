@@ -169,16 +169,16 @@ public class ColorPainter : MonoBehaviour
 
     private IEnumerator SuckDelay(GameObject splatterObj, Color color)
     {
-        
+        var emissionColor = suckParticles.main;
+        emissionColor.startColor = color;
         suckParticles.Play();
         
-        yield return new WaitForSeconds(2.5f);
-        suckParticles_Color.Play();
+      //  suckParticles_Color.Play();
         ChangeColor(color);
         Destroy(splatterObj.gameObject);
         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse1));
         suckParticles.Stop();
-        suckParticles_Color.Stop();
+       // suckParticles_Color.Stop();
         
         
     }
