@@ -20,7 +20,9 @@ public class ColorPainter : MonoBehaviour
     public float BrushSize = 0.1f;
     private Color color;
     private Renderer _goRenderer;
-    
+    [SerializeField] private ParticleSystem suckParticles;
+    [SerializeField] private ParticleSystem suckParticles_Color;
+
     [SerializeField] Image img;
     
     private void Start()
@@ -77,6 +79,7 @@ public class ColorPainter : MonoBehaviour
                     SuckPaint(splatterHit.collider.gameObject, colorChoice.CurrentColor());
                 }
             }
+            
             /*color = Color.black;
             part.color = color;
             img.color = color;*/
@@ -166,9 +169,18 @@ public class ColorPainter : MonoBehaviour
 
     private IEnumerator SuckDelay(GameObject splatterObj, Color color)
     {
-        yield return new WaitForSeconds(0.5f);
+        
+        suckParticles.Play();
+        
+        yield return new WaitForSeconds(2.5f);
+        suckParticles_Color.Play();
         ChangeColor(color);
         Destroy(splatterObj.gameObject);
+        yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse1));
+        suckParticles.Stop();
+        suckParticles_Color.Stop();
+        
+        
     }
 
     public void ChangeColor(Color color)

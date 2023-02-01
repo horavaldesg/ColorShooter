@@ -8,13 +8,12 @@ using UnityEngine.Serialization;
 public class moveCharacter : MonoBehaviour
 {
     public Transform player;
-
     public AudioSource footSteps;
     public Animator anim;
     public GameObject body;
     public string scene;
     public GameObject interactButtonText;
-
+    
     public CharacterController cc;
     public Transform checkPos;
     public LayerMask groundMask;
