@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class moveCharacter : MonoBehaviour
 {
@@ -42,7 +44,8 @@ public class moveCharacter : MonoBehaviour
 
     float zeroGravity;
     Vector3 initialPos;
-
+    public bool startedJumping;
+    public bool startJumping;
     string currentScene;
 
     private void Start()
@@ -166,6 +169,7 @@ public class moveCharacter : MonoBehaviour
             {
                 grounded = true;
                 verticalSpeed = 0;
+                
             }
             else
             {
@@ -173,76 +177,112 @@ public class moveCharacter : MonoBehaviour
             }
 
         }
+        // Blue Jump
+        if (!jump && grounded) startJumping = false;
+        if (startJumping && grounded && jump)
+        {
+            Jump(jumpInitial);
+            Debug.Log(grounded);
+        }
 
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            startJumping = false;
+            startedJumping = false;
+            var camDown = Mathf.Lerp(camTransform.localPosition.y, 0, 0.75f);
+            camTransform.localPosition = new Vector3(camTransform.localPosition.x, camDown, camTransform.localPosition.z);
+        }
+        else  if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            var camDown = Mathf.Lerp(camTransform.localPosition.y, 1, 0.75f);
+            camTransform.localPosition = new Vector3(camTransform.localPosition.x, camDown, camTransform.localPosition.z);
+        }
+        
+        
         //Jump
         if (!gravityChange)
         {
             if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
-                verticalSpeed = jumpInitial;
-                jump = false;
-            }
-        }
-        else if (gravityChange)
-        {
-            if (Input.GetKeyDown(KeyCode.Space) && grounded)
-            {
-                verticalSpeed = -jumpInitial;
-                jump = false;
-            }
-        }
-
-        if (Physics.Raycast(camTransform.position, camTransform.forward, out var hit, 6))
-        {
-            if (hit.collider.CompareTag("Button"))
-            {
-                interactButtonText.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.E))
+                
+                if(jump)
                 {
-                    hit.collider.GetComponentInParent<Animator>().Play("ButtonPushed");
-                    interactButtonText.SetActive(false);
-                    DoorMoveScript.buttonPushed = true;
+                    startJumping = true;
+                }
+                else
+                {
+                    startJumping = false;
+                    Jump(jumpInitial);
+                }
+            }
+
+            else if (gravityChange)
+            {
+                if (Input.GetKeyDown(KeyCode.Space) && grounded)
+                {
+                    Jump(-jumpInitial);
                 }
 
 
+                if (Physics.Raycast(camTransform.position, camTransform.forward, out var hit, 6))
+                {
+                    if (hit.collider.CompareTag("Button"))
+                    {
+                        interactButtonText.SetActive(true);
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            hit.collider.GetComponentInParent<Animator>().Play("ButtonPushed");
+                            interactButtonText.SetActive(false);
+                            DoorMoveScript.buttonPushed = true;
+                        }
+
+                    }
+
+                }
+                else
+                {
+                    interactButtonText.SetActive(false);
+                    //DoorMoveScript.buttonPushed = false;
+                }
+
+                if (hit.collider.CompareTag("SceneSwitch"))
+                {
+                    interactButtonText.SetActive(true);
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        SceneManager.LoadScene(scene);
+                    }
+                }
 
             }
             else
-            {
                 interactButtonText.SetActive(false);
-                //DoorMoveScript.buttonPushed = false;
-            }
 
-            if (hit.collider.CompareTag("SceneSwitch"))
-            {
-                interactButtonText.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    SceneManager.LoadScene(scene);
-                }
-            }
+
+
+            cc.Move(movement);
+
 
         }
-        else
-            interactButtonText.SetActive(false);
-
-
-
-        cc.Move(movement);
-
-
     }
 
+    public void Jump(float jumpInitial)
+    {
+        verticalSpeed = jumpInitial;
+        jump = false;
+       
+    }
 
+    
     public static void RotateBody(Transform body)
     {
         var rotation = body.transform.rotation;
         rotation = Quaternion.Euler(rotation.x, rotation.y, 180);
         body.transform.rotation = rotation;
     }
+
     public static void RotateBodyBack(Transform body)
     {
         body.transform.rotation = Quaternion.Euler(0, 180, 0);
     }
-
 }

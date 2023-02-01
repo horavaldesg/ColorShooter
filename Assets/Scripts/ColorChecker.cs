@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,16 +7,23 @@ public class ColorChecker : MonoBehaviour
 {
     public Transform body;
     string scene;
+    private moveCharacter _moveCharacter;
+
+    private Collider col;
     
     private void Start()
     {
         scene = SceneManager.GetActiveScene().name;
+        transform.parent.TryGetComponent(out _moveCharacter);
+        transform.TryGetComponent(out col);
     }
+
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "YTop")
         {
-            GetComponentInParent<moveCharacter>().grounded = true;
+           _moveCharacter.grounded = true;
         }
         //if (other.CompareTag("Player"))
         //{
@@ -35,6 +43,8 @@ public class ColorChecker : MonoBehaviour
                 //GetComponentInParent<moveCharacter>().speedPlayer = GetComponentInParent<moveCharacter>().boost; 
                 moveCharacter.fast = true;
                 moveCharacter.jump = false;
+                _moveCharacter.startJumping = false;
+                _moveCharacter.startedJumping = false;
 
                 //Debug.Log("Magenta");
             }
@@ -44,17 +54,8 @@ public class ColorChecker : MonoBehaviour
             }
 
             //Jump
-            if (other.gameObject.GetComponent<Renderer>().material.color == Color.cyan)
-            {
-
-                //GetComponentInParent<moveCharacter>().verticalSpeed = GetComponentInParent<moveCharacter>().jumpBoost;
-                moveCharacter.jump = true;
-                //Debug.Log("Jump 1");
-                moveCharacter.fast = false;
-
-
-                //Debug.Log("Cyan");
-            }
+            
+           
 
             //Gravity
             if (other.gameObject.GetComponent<Renderer>().material.color == Color.yellow)
@@ -73,6 +74,9 @@ public class ColorChecker : MonoBehaviour
                 //GetComponentInParent<moveCharacter>().verticalSpeed = 0;
                 moveCharacter.jump = false;
                 moveCharacter.fast = false;
+                _moveCharacter.startJumping = false;
+                _moveCharacter.startedJumping = false;
+
                 //Debug.Log("Yellow");
             }
 
@@ -80,14 +84,20 @@ public class ColorChecker : MonoBehaviour
             {
                 //Debug.Log("Black");
             }
-            else
-            {
-                //moveCharacter.jump = false;
-                //moveCharacter.fast = false;
 
+            if (other.gameObject.GetComponent<Renderer>().material.color == Color.cyan)
+            {
+
+                //GetComponentInParent<moveCharacter>().verticalSpeed = GetComponentInParent<moveCharacter>().jumpBoost;
+
+                //Debug.Log("Jump 1");
+                moveCharacter.fast = false;
+                moveCharacter.jump = true;
+                _moveCharacter.startedJumping = true;
+                
+                //Debug.Log("Cyan");
             }
             //Debug.Log(other.gameObject.GetComponent<Renderer>().material.color);
-
         }
 
         //}

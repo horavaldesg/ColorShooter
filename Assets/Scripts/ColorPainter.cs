@@ -72,7 +72,7 @@ public class ColorPainter : MonoBehaviour
             splatterHit.collider.transform.TryGetComponent(out ColorChoice colorChoice);
             if(colorChoice)
             {
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                if (Input.GetKey(KeyCode.Mouse1))
                 {
                     SuckPaint(splatterHit.collider.gameObject, colorChoice.CurrentColor());
                 }
@@ -161,10 +161,16 @@ public class ColorPainter : MonoBehaviour
 
     private void SuckPaint(GameObject splatterObj, Color color)
     {
-        ChangeColor(color);
-        Destroy(splatterObj.gameObject, 5);
+        StartCoroutine(SuckDelay(splatterObj, color));
     }
-    
+
+    private IEnumerator SuckDelay(GameObject splatterObj, Color color)
+    {
+        yield return new WaitForSeconds(0.5f);
+        ChangeColor(color);
+        Destroy(splatterObj.gameObject);
+    }
+
     public void ChangeColor(Color color)
     {
         this.color = color;

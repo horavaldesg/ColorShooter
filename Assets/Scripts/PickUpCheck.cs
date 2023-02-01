@@ -9,6 +9,11 @@ public class PickUpCheck : MonoBehaviour
   [SerializeField] private ColorPainter colorPainter;
   [SerializeField] private GameObject pickupText;
 
+  private void Awake()
+  {
+      pickupText.SetActive(false);
+  }
+
   private void Update()
   {
       if (Physics.Raycast(camTransform.position, camTransform.forward, out var hit, 6))
