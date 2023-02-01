@@ -135,7 +135,13 @@ public class ColorPainter : MonoBehaviour
             }
             else if (hit.collider.gameObject.name == "YBottom")
             {
-                SpawnSplatter(hit,Quaternion.Euler(180, 0, 0));
+                var go = Instantiate(brush, hit.point - Vector3.up * 0.1f, Quaternion.Euler(180, 0, 0), transform);
+                go.GetComponent<Renderer>().material.color = color;
+                var brushSize = Random.Range(go.transform.localScale.x - 0.05f, go.transform.localScale.x + 0.15f);
+                go.transform.localScale = new Vector3(brushSize, go.transform.localScale.y, brushSize);
+                go.TryGetComponent(out _goRenderer);
+                _goRenderer.material.color = color;
+                landAudio.PlayOneShot(clip);
             }
             else
             {
@@ -157,6 +163,8 @@ public class ColorPainter : MonoBehaviour
     private void SpawnSplatter(RaycastHit hit, Quaternion rotation)
     {
         var go = Instantiate(brush, hit.point + Vector3.up * 0.1f, rotation, transform);
+        var brushSize = Random.Range(go.transform.localScale.x - 0.05f, go.transform.localScale.x + 0.15f);
+        go.transform.localScale = new Vector3(brushSize, go.transform.localScale.y, brushSize);
         go.TryGetComponent(out _goRenderer);
         _goRenderer.material.color = color;
         landAudio.PlayOneShot(clip);

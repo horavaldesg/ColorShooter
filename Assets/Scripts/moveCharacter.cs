@@ -13,7 +13,7 @@ public class moveCharacter : MonoBehaviour
     public GameObject body;
     public string scene;
     public GameObject interactButtonText;
-    
+
     public CharacterController cc;
     public Transform checkPos;
     public LayerMask groundMask;
@@ -168,7 +168,7 @@ public class moveCharacter : MonoBehaviour
             {
                 grounded = true;
                 verticalSpeed = 0;
-                
+
             }
             else
             {
@@ -176,6 +176,7 @@ public class moveCharacter : MonoBehaviour
             }
 
         }
+
         // Blue Jump
         if (!jump && grounded) startJumping = false;
         if (startJumping && grounded && jump)
@@ -189,22 +190,24 @@ public class moveCharacter : MonoBehaviour
             startJumping = false;
             startedJumping = false;
             var camDown = Mathf.Lerp(camTransform.localPosition.y, 0, 0.75f);
-            camTransform.localPosition = new Vector3(camTransform.localPosition.x, camDown, camTransform.localPosition.z);
+            camTransform.localPosition =
+                new Vector3(camTransform.localPosition.x, camDown, camTransform.localPosition.z);
         }
-        else  if (Input.GetKeyUp(KeyCode.LeftControl))
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             var camDown = Mathf.Lerp(camTransform.localPosition.y, 1, 0.75f);
-            camTransform.localPosition = new Vector3(camTransform.localPosition.x, camDown, camTransform.localPosition.z);
+            camTransform.localPosition =
+                new Vector3(camTransform.localPosition.x, camDown, camTransform.localPosition.z);
         }
-        
-        
+
+
         //Jump
         if (!gravityChange)
         {
             if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
-                
-                if(jump)
+
+                if (jump)
                 {
                     startJumping = true;
                 }
@@ -214,65 +217,74 @@ public class moveCharacter : MonoBehaviour
                     Jump(jumpInitial);
                 }
             }
-
-            else if (gravityChange)
+        }
+        else if (gravityChange)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && grounded)
+                if (jump)
                 {
-                    Jump(-jumpInitial);
-                }
-
-
-                if (Physics.Raycast(camTransform.position, camTransform.forward, out var hit, 6))
-                {
-                    if (hit.collider.CompareTag("Button"))
-                    {
-                        interactButtonText.SetActive(true);
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            hit.collider.GetComponentInParent<Animator>().Play("ButtonPushed");
-                            interactButtonText.SetActive(false);
-                            DoorMoveScript.buttonPushed = true;
-                        }
-
-                    }
-
+                    startJumping = true;
                 }
                 else
                 {
-                    interactButtonText.SetActive(false);
-                    //DoorMoveScript.buttonPushed = false;
+                    startJumping = false;
+                    Jump(-jumpInitial);
                 }
+            }
 
-                if (hit.collider.CompareTag("SceneSwitch"))
+        }
+
+
+        if (Physics.Raycast(camTransform.position, camTransform.forward, out var hit, 6))
+        {
+            if (hit.collider.CompareTag("Button"))
+            {
+                interactButtonText.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    interactButtonText.SetActive(true);
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        SceneManager.LoadScene(scene);
-                    }
+                    hit.collider.GetComponentInParent<Animator>().Play("ButtonPushed");
+                    interactButtonText.SetActive(false);
+                    DoorMoveScript.buttonPushed = true;
                 }
 
             }
+
+
             else
+            {
                 interactButtonText.SetActive(false);
+                //DoorMoveScript.buttonPushed = false;
+            }
 
-
-
-            cc.Move(movement);
-
-
+            if (hit.collider.CompareTag("SceneSwitch"))
+            {
+                interactButtonText.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    SceneManager.LoadScene(scene);
+                }
+            }
         }
+        else
+            interactButtonText.SetActive(false);
+
+
+
+        cc.Move(movement);
+
+
+
     }
 
     public void Jump(float jumpInitial)
     {
         verticalSpeed = jumpInitial;
         jump = false;
-       
+
     }
 
-    
+
     public static void RotateBody(Transform body)
     {
         var rotation = body.transform.rotation;
