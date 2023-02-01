@@ -11,18 +11,19 @@ public class PickupCubeManager : MonoBehaviour
     private MeshRenderer meshRenderer;
     private void Awake()
     {
+        gameObject.tag = "Pickup";
         TryGetComponent(out meshRenderer);
         if(!meshRenderer)return;
         switch (ColorPickup)
         {
             case ColorType.colorChoice.Magenta:
-                meshRenderer.material.color = Color.magenta;
+                meshRenderer.materials[1].color = Color.magenta;
                 break;
             case ColorType.colorChoice.Cyan:
-                meshRenderer.material.color = Color.cyan;
+                meshRenderer.materials[1].color = Color.cyan;
                 break;
             case ColorType.colorChoice.Yellow:
-                meshRenderer.material.color = Color.yellow;
+                meshRenderer.materials[1].color = Color.yellow;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -31,7 +32,7 @@ public class PickupCubeManager : MonoBehaviour
 
     public Color CurrentColor()
     {
-        return meshRenderer.material.color;
+        return meshRenderer.materials[1].color;
 
     }
 }
