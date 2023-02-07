@@ -14,7 +14,7 @@ public class NewSceneAnimation : MonoBehaviour
         colors[0] = Color.yellow;
         colors[1] = Color.cyan;
         colors[2] = Color.magenta;
-        Debug.Log(SceneManager.GetActiveScene().name);
+      //  Debug.Log(SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name != "Start Scene" && SceneManager.GetActiveScene().name != "Level 1")
         {
             StartCoroutine(playAnim());
