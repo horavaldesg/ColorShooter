@@ -48,7 +48,9 @@ public class moveCharacter : MonoBehaviour
     string currentScene;
 
     private void Start()
-    {
+    {    
+        Time.timeScale = 1;
+
         gameObject.layer = 2;
         RotateBodyBack(player);
         fast = false;

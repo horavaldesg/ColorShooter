@@ -65,4 +65,14 @@ public class OptionsManager : MonoBehaviour
     levelButton.TryGetComponent(out LevelSelectorButton levelSelectorButtonComp);
     levelSelectorButtonComp.SetText(levelName);
   }
+
+  public void QuitGame()
+  {
+    Application.Quit();
+  }
+
+  public void MainMenu()
+  {
+    SceneManager.LoadScene("Start Scene");
+  }
 }
