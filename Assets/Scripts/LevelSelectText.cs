@@ -83,7 +83,7 @@ private void OnDisable()
     {
         for( ; x < 1; x+=0.035f)
         {
-            Debug.Log(x);
+            //Debug.Log(x);
             //_anchor.localPosition = new Vector2(_anchor.localPosition.x, x);
             if (x < 0.5f) StartCoroutine(ChangePos(x));
             else
