@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+
 using UnityEngine.SceneManagement;
 
 public class LevelSelectText : MonoBehaviour
@@ -12,8 +13,16 @@ public class LevelSelectText : MonoBehaviour
     private Color _outlineColor;
     private float _t;
     private bool _showText;
+    private RectTransform _anchor;
     private void Awake()
     {
+        
+        _anchor = GetComponent<RectTransform>();
+        _anchor.anchorMax = new Vector2(_anchor.anchorMax.x, 0.5f);
+        _anchor.anchorMin = new Vector2(_anchor.anchorMin.x, 0.5f);
+        _anchor.localPosition = new Vector2(_anchor.localPosition.x, 0);
+
+
         TryGetComponent(out _textMeshProUGUI);
         if(!_textMeshProUGUI) return;
         _showText = false;
@@ -49,6 +58,7 @@ private void OnDisable()
 
     private IEnumerator ShowText()
     {
+        
         for(var i = (int)_faceColor.a + 1; i < 254; i++)
         {
             yield return new WaitForSeconds(0.02f);
@@ -58,11 +68,34 @@ private void OnDisable()
             _textMeshProUGUI.faceColor = _faceColor;
             _textMeshProUGUI.outlineColor = _outlineColor;
         }
-
-        yield return new WaitForSeconds(0.1f);
+       
+        StartCoroutine(ChangePos(_anchor.anchorMax.x));
+        //_anchor.anchorMin = new Vector2(0, 0.8f);
+       // _anchor.anchorMax = new Vector2(1, 1);
+       
+        yield return null;
         //_faceColor.a += 0.05f;
 
         //  yield return new WaitWhile(() => _faceColor.a <= 255);
+    }
+
+    private IEnumerator ChangePos(float x)
+    {
+        for( ; x < 1; x+=0.035f)
+        {
+            Debug.Log(x);
+            //_anchor.localPosition = new Vector2(_anchor.localPosition.x, x);
+            if (x < 0.5f) StartCoroutine(ChangePos(x));
+            else
+            {
+                yield return new WaitForSeconds(0.05f);
+                _anchor.anchorMax = new Vector2(_anchor.anchorMax.x, x);
+                _anchor.anchorMin = new Vector2(_anchor.anchorMin.x, x);
+            }
+            
+            
+        }
+
     }
     private void Update()
     {
