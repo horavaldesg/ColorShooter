@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
+
 public class ColorPainter : MonoBehaviour
 {
     public static ColorPainter colorPainter;
@@ -24,7 +27,7 @@ public class ColorPainter : MonoBehaviour
     [SerializeField] private ParticleSystem suckParticles;
     [SerializeField] private ParticleSystem suckParticles_Color;
     [SerializeField] Image img;
-    
+    public static event Action<Color> changeColorEvent;
     private void Start()
     {
         colorPainter = this;
@@ -174,6 +177,7 @@ public class ColorPainter : MonoBehaviour
     private void SuckPaint(GameObject splatterObj, Color color)
     {
         StartCoroutine(SuckDelay(splatterObj, color));
+
     }
 
     private IEnumerator SuckDelay(GameObject splatterObj, Color color)
@@ -181,9 +185,10 @@ public class ColorPainter : MonoBehaviour
         var emissionColor = suckParticles.main;
         emissionColor.startColor = color;
         suckParticles.Play();
-        
       //  suckParticles_Color.Play();
         ChangeColor(color);
+        changeColorEvent.Invoke(color);
+
         Destroy(splatterObj.gameObject);
         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse1));
         suckParticles.Stop();

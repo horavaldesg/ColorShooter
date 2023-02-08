@@ -5,7 +5,8 @@ using System.Security.Cryptography;
 using UnityEngine;
 
 public class GunAnimationController : MonoBehaviour
-{ 
+{
+    public static GunAnimationController _gunAnimationController;
     Animator anim;
     AudioSource spraySound;
     [SerializeField] private GameObject inHandMag;
@@ -20,11 +21,20 @@ public class GunAnimationController : MonoBehaviour
     private void OnEnable()
     {
         PickUpCheck.triggerAnimation += SetColor;
+        ColorPainter.changeColorEvent += ChangeGunColorSucc;
     }
 
     private void OnDisable()
     {
         PickUpCheck.triggerAnimation -= SetColor;
+        ColorPainter.changeColorEvent -= ChangeGunColorSucc;
+
+    }
+
+    private void Awake()
+    {
+        _gunAnimationController = this;
+
     }
 
     private void Start()
@@ -126,6 +136,30 @@ public class GunAnimationController : MonoBehaviour
         else if (_newColor == Color.yellow)
         {
             _playerMag.ChangeGunColor(ColorType.colorChoice.Yellow);
+        }
+    }
+    private void ChangeGunColorSucc(Color color)
+    {
+        Debug.Log(color);
+        if (color == Color.magenta)
+        {
+            Debug.Log("Magenta");
+
+            _playerMag.ChangeGunColor(ColorType.colorChoice.Magenta);
+
+        }
+        else if (color == Color.cyan)
+        {
+            Debug.Log("Cyan");
+
+            _playerMag.ChangeGunColor(ColorType.colorChoice.Cyan);
+
+        }
+        else if (color == Color.yellow)
+        {
+            Debug.Log("Yellow");
+            _playerMag.ChangeGunColor(ColorType.colorChoice.Yellow);
+
         }
     }
     

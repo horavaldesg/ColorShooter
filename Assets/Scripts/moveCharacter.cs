@@ -183,7 +183,13 @@ public class moveCharacter : MonoBehaviour
         if (!jump && grounded) startJumping = false;
         if (startJumping && grounded && jump)
         {
-            Jump(jumpInitial);
+            if(!gravityChange)
+                Jump(jumpInitial);
+            else
+            {
+                Jump(-jumpInitial);
+
+            }
             Debug.Log(grounded);
         }
 
