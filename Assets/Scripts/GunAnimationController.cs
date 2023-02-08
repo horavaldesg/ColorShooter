@@ -44,7 +44,7 @@ public class GunAnimationController : MonoBehaviour
     }
     private void Update()
     {
-        /*if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             anim.SetBool("GunShoot", true);
             spraySound.Play();
@@ -57,7 +57,7 @@ public class GunAnimationController : MonoBehaviour
             anim.SetBool("GunShoot", false);
             spraySound.Pause();
             //spraySound.loop = false;
-        }*/
+        }
     }
 
     public void StartReload()
