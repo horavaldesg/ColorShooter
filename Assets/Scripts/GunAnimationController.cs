@@ -109,12 +109,24 @@ public class GunAnimationController : MonoBehaviour
     public void EndReload()
     {
         anim.SetBool("Reload", false);
+        
         //changeColor.Invoke(_newColor);
     }
 
-    public void SpawnMag()
+    public void ChangeGunColorEvent()
     {
-        
+        if (_newColor == Color.magenta)
+        {
+            _playerMag.ChangeGunColor(ColorType.colorChoice.Magenta);
+        }
+        else if (_newColor == Color.cyan)
+        {
+            _playerMag.ChangeGunColor(ColorType.colorChoice.Cyan);
+        }
+        else if (_newColor == Color.yellow)
+        {
+            _playerMag.ChangeGunColor(ColorType.colorChoice.Yellow);
+        }
     }
     
 }

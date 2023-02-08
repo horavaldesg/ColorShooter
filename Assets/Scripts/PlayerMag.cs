@@ -9,6 +9,7 @@ public class PlayerMag : MonoBehaviour
     [Header("Change Color Pickup to Desired Color, Script Will take care of the rest")]
     public ColorType.colorChoice ColorPickup;
     public MeshRenderer[] meshRenderer;
+    public Material[] gunMeshRenderer;
     [SerializeField] private ColorPainter colorPainter;
     private void Awake()
     {
@@ -36,7 +37,27 @@ public class PlayerMag : MonoBehaviour
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
+
+        switch (ColorPickup)
+        {
+            case ColorType.colorChoice.Magenta:
+                gunMeshRenderer[0].color = Color.magenta;
+                gunMeshRenderer[1].color = new Color(0.45f, 0f, 0.45f);
+
+                break;
+            case ColorType.colorChoice.Cyan:
+                gunMeshRenderer[0].color = Color.cyan;
+                gunMeshRenderer[1].color = new Color(0f, 0.42f, 0.42f);
+
+                break;
+            case ColorType.colorChoice.Yellow:
+                gunMeshRenderer[0].color = Color.yellow;
+                gunMeshRenderer[1].color = new Color(0.5f, 0.43f, 0f);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
 
     }
 
@@ -70,6 +91,28 @@ public class PlayerMag : MonoBehaviour
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+    } 
+    public void ChangeGunColor(ColorType.colorChoice colorChoice)
+    {
+        switch (ColorPickup)
+        {
+            case ColorType.colorChoice.Magenta:
+                gunMeshRenderer[0].color = Color.magenta;
+                gunMeshRenderer[1].color = new Color(0.45f, 0f, 0.45f);
+
+                break;
+            case ColorType.colorChoice.Cyan:
+                gunMeshRenderer[0].color = Color.cyan;
+                gunMeshRenderer[1].color = new Color(0f, 0.42f, 0.42f);
+
+                break;
+            case ColorType.colorChoice.Yellow:
+                gunMeshRenderer[0].color = Color.yellow;
+                gunMeshRenderer[1].color = new Color(0.5f, 0.43f, 0f);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 }
