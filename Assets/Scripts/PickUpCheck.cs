@@ -8,7 +8,7 @@ public class PickUpCheck : MonoBehaviour
   [SerializeField] private Transform camTransform;
   [SerializeField] private ColorPainter colorPainter;
   [SerializeField] private GameObject pickupText;
-
+  public static event Action<Color, GameObject> triggerAnimation ;
   private void Awake()
   {
       pickupText.SetActive(false);
@@ -25,8 +25,8 @@ public class PickUpCheck : MonoBehaviour
               if (Input.GetAxis("Interact") != 1) return;
               hit.collider.TryGetComponent(out PickupCubeManager cubeManager);
               if (!cubeManager) return;
-              colorPainter.ChangeColor(cubeManager.CurrentColor());
-             
+              triggerAnimation.Invoke(cubeManager.CurrentColor(), hit.collider.gameObject);
+                
           }
           else
           {

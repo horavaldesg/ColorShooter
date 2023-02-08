@@ -9,11 +9,19 @@ public class PickupCubeManager : MonoBehaviour
     [Header("Change Color Pickup to Desired Color, Script Will take care of the rest")]
     public ColorType.colorChoice ColorPickup;
     private MeshRenderer meshRenderer;
+
+    
+    
     private void Awake()
     {
-        gameObject.tag = "Pickup";
         TryGetComponent(out meshRenderer);
-        if(!meshRenderer)return;
+    }
+
+    private void Start()
+    {
+        gameObject.tag = "Pickup";
+        
+        if (!meshRenderer) return;
         switch (ColorPickup)
         {
             case ColorType.colorChoice.Magenta:
@@ -28,11 +36,11 @@ public class PickupCubeManager : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
+
     }
 
     public Color CurrentColor()
     {
         return meshRenderer.materials[1].color;
-
     }
 }

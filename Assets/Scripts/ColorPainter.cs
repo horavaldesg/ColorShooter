@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ColorPainter : MonoBehaviour
 {
+    public static ColorPainter colorPainter;
     public bool magenta;
     public bool cyan;
     public bool yellow;
@@ -22,12 +23,12 @@ public class ColorPainter : MonoBehaviour
     private Renderer _goRenderer;
     [SerializeField] private ParticleSystem suckParticles;
     [SerializeField] private ParticleSystem suckParticles_Color;
-
     [SerializeField] Image img;
     
     private void Start()
     {
-        color = Color.magenta;
+        colorPainter = this;
+        //color = Color.magenta;
         img.color = color;
         part.color = color;
 
