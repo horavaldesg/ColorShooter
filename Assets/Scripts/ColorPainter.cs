@@ -186,8 +186,8 @@ public class ColorPainter : MonoBehaviour
         emissionColor.startColor = color;
         suckParticles.Play();
       //  suckParticles_Color.Play();
-        ChangeColor(color);
-        changeColorEvent.Invoke(color);
+        //ChangeColor(color);
+        //changeColorEvent.Invoke(color);
 
         Destroy(splatterObj.gameObject);
         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse1));
